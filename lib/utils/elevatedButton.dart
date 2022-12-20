@@ -22,7 +22,7 @@ class ElevatedButton1 extends StatelessWidget {
       decoration:
           BoxDecoration(borderRadius: BorderRadius.circular(10), color: color),
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           inputText,
           style: TextStyle(color: textColor, fontSize: 25),
@@ -32,20 +32,24 @@ class ElevatedButton1 extends StatelessWidget {
   }
 }
 
-class MyPhoto extends StatelessWidget {
-  const MyPhoto({super.key});
+class MyLogos extends StatelessWidget {
+  final dynamic image;
+  const MyLogos({super.key, required this.image});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
-      width: 60,
+      height: Dimensions.height10 * 5,
+      width: Dimensions.width10 * 2.5,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(
             Dimensions.height10,
           ),
-          color: MyColors.mainColor.shade100),
-      child: const Image(image: AssetImage("assets/images/pic04.jpg")),
+          color: Color.fromARGB(255, 228, 239, 248)),
+      child: Image(
+        fit: BoxFit.cover,
+        image: image,
+      ),
     );
   }
 }
