@@ -13,9 +13,9 @@ class BiggerText extends StatelessWidget {
     return Text(
       text,
       style: const TextStyle(
-          fontSize: 40,
+          fontSize: 24,
           color: Colors.blue,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w700,
           fontFamily: "Roboto"),
     );
   }
@@ -30,7 +30,12 @@ class SmallText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(color: color, fontSize: 20, fontFamily: "Roboto"),
+      style: TextStyle(
+          color: color,
+          fontSize: 14,
+          height: 1.5,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto"),
     );
   }
 }
@@ -45,7 +50,11 @@ class BigText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(color: color, fontSize: 25, fontFamily: "Roboto"),
+      style: TextStyle(
+          color: color,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          fontFamily: "Roboto"),
     );
   }
 }

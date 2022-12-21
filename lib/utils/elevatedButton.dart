@@ -42,10 +42,11 @@ class MyLogos extends StatelessWidget {
       height: Dimensions.height10 * 5,
       width: Dimensions.width10 * 2.5,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(
-            Dimensions.height10,
-          ),
-          color: Color.fromARGB(255, 228, 239, 248)),
+        borderRadius: BorderRadius.circular(
+          Dimensions.height10,
+        ),
+        // color: Color.fromARGB(255, 228, 239, 248)
+      ),
       child: Image(
         fit: BoxFit.cover,
         image: image,

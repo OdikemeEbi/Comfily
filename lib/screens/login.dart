@@ -1,3 +1,5 @@
+import 'package:comfily/screens/resetpasswordscren.dart';
+import 'package:comfily/screens/signupscreen.dart';
 import 'package:comfily/utils/dimensions.dart';
 import 'package:comfily/utils/mycolors.dart';
 import 'package:comfily/utils/mytext.dart';
@@ -19,8 +21,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // print('my current screen height is' +
+    //     MediaQuery.of(context).size.height.toString());
     return Scaffold(
-      appBar: AppBar(),
+      // appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.all(Dimensions.height20),
         child: Form(
@@ -32,19 +36,25 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Container(
                     padding: EdgeInsets.only(
-                        left: Dimensions.width10,
+                        left: Dimensions.width10 - 9,
                         right: Dimensions.width10,
-                        top: Dimensions.height10 * 3),
+                        top: Dimensions.height10 * 5),
                     child: BiggerText(
                       text: "Welcome!",
                     )),
+                SizedBox(
+                  height: Dimensions.height10,
+                ),
                 Container(
                   padding: EdgeInsets.only(
                       left: Dimensions.height10, right: Dimensions.height10),
-                  child: const SmallText(
-                    text:
-                        "Log in to your Comfily account to explore a place to\nlive and be comfortable",
-                    color: MyColors.greyColor,
+                  child: Container(
+                    width: double.maxFinite,
+                    child: const SmallText(
+                      text:
+                          "Log in to your Comfily account to explore a place\nto live and be comfortable",
+                      color: MyColors.greyColor,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -56,14 +66,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: Dimensions.height10,
                 ),
-                TextFormField(
-                  controller: email,
-                  decoration: InputDecoration(
-                      hintText: "grouph@gmail.com",
-                      border: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: MyColors.blackColor),
-                          borderRadius: BorderRadius.circular(10))),
+                Container(
+                  height: NewDimensions.height52,
+                  child: TextFormField(
+                    controller: email,
+                    decoration: InputDecoration(
+                        hintText: "grouph@gmail.com",
+                        border: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: MyColors.blackColor),
+                            borderRadius: BorderRadius.circular(10))),
+                  ),
                 ),
                 SizedBox(
                   height: Dimensions.height20 * 2,
@@ -74,16 +87,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: Dimensions.height10,
                 ),
-                TextFormField(
-                  controller: password,
-                  decoration: InputDecoration(
-                      hintText: "groupH12356",
-                      suffixIcon: Icon(Icons.remove_red_eye_outlined),
-                      border: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: MyColors.blackColor),
-                          borderRadius:
-                              BorderRadius.circular(Dimensions.height10))),
+                Container(
+                  height: NewDimensions.height52,
+                  child: TextFormField(
+                    controller: password,
+                    decoration: InputDecoration(
+                        hintText: "groupH12356",
+                        suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                        border: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: MyColors.blackColor),
+                            borderRadius:
+                                BorderRadius.circular(Dimensions.height10))),
+                  ),
                 ),
                 SizedBox(
                   height: Dimensions.height20,
@@ -96,60 +112,73 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: MyColors.blackColor,
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ResetPasswordScreen(),
+                              ));
+                        },
                         child: const SmallText(
                           text: "Reset",
                           color: MyColors.mainColor,
                         )),
-                    SizedBox(
-                      height: Dimensions.height20 * 5,
-                    ),
+                    // SizedBox(
+                    //     // height: Dimensions.height20,
+                    //     ),
                   ],
                 ),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(Dimensions.height20 - 5),
-                      ),
-                      minimumSize:
-                          Size(double.infinity, Dimensions.height10 * 6),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginScreen()));
-                    },
-                    child: BigText(text: "Login")),
                 SizedBox(
-                  height: Dimensions.height20 * 2,
+                  height: NewDimensions.height10,
+                ),
+                Container(
+                  height: NewDimensions.height52,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.height20 - 5),
+                        ),
+                        minimumSize:
+                            Size(double.infinity, Dimensions.height10 * 6),
+                      ),
+                      onPressed: () {},
+                      child: BigText(text: "Login")),
+                ),
+                SizedBox(
+                  height: Dimensions.height20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SmallText(
-                      text: "Dont have an Account?",
+                      text: "Don't have an Account?",
                       color: MyColors.blackColor,
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignUpScreen()));
+                        },
                         child: const SmallText(
                           text: "Sign Up",
                           color: MyColors.mainColor,
                         )),
-                    SizedBox(
-                      height: Dimensions.height20,
-                    ),
+                    // SizedBox(
+                    //   height: Dimensions.height20,
+                    // ),
                   ],
                 ),
                 SizedBox(
-                  height: Dimensions.height20 * 3,
+                  height: Dimensions.height20 + 10,
                 ),
                 Center(
+                  heightFactor: 0,
                   child: Container(
                     alignment: Alignment.center,
-                    height: Dimensions.height20 * 2,
+                    height: Dimensions.height20 + 15,
                     width: Dimensions.height20 * 4,
                     decoration: BoxDecoration(
                         borderRadius:
@@ -157,12 +186,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.blue.shade100),
                     child: const SmallText(
                       text: 'OR',
-                      color: MyColors.blackColor,
+                      color: MyColors.mainColor,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: Dimensions.height20 * 2,
+                  height: Dimensions.height20,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -173,14 +202,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: Dimensions.width20 * 5,
                         child: const Divider(
                           color: MyColors.blackColor,
-                          thickness: 2,
+                          thickness: 1,
                         ),
                       ),
                     ),
                     SizedBox(
                       width: Dimensions.width10 - 7,
                     ),
-                    SmallText(text: 'Sign in with', color: MyColors.blackColor),
+                    const SmallText(
+                        text: 'Sign in with', color: MyColors.blackColor),
                     SizedBox(
                       width: Dimensions.width10 - 7,
                     ),
@@ -189,7 +219,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: Dimensions.width20 * 5,
                         child: const Divider(
                           color: MyColors.blackColor,
-                          thickness: 2,
+                          thickness: 1,
                         ),
                       ),
                     )
@@ -202,12 +232,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const MyLogos(
-                      image: AssetImage('assets/images/pic05.png'),
+                    MaterialButton(
+                      onPressed: (() {}),
+                      child: const MyLogos(
+                        image: AssetImage('assets/images/pic05.png'),
+                      ),
                     ),
-                    SizedBox(width: Dimensions.width20),
-                    const MyLogos(
-                      image: AssetImage('assets/images/pic03.png'),
+                    // const MyLogos(
+                    //   image: AssetImage('assets/images/pic05.png'),
+                    // ),
+                    // SizedBox(width: Dimensions.width10 - 5),
+                    MaterialButton(
+                      onPressed: (() {}),
+                      child: const MyLogos(
+                        image: AssetImage('assets/images/pic03.png'),
+                      ),
                     )
                     // Container(
                     //   height: Dimensions.height10 * 5,

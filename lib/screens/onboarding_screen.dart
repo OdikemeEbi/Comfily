@@ -1,4 +1,6 @@
 import 'package:comfily/screens/login.dart';
+import 'package:comfily/screens/signupscreen.dart';
+import 'package:comfily/utils/dimensions.dart';
 import 'package:comfily/utils/elevatedButton.dart';
 import 'package:comfily/utils/mycolors.dart';
 import 'package:comfily/utils/mytext.dart';
@@ -26,40 +28,50 @@ class Home extends StatelessWidget {
               width: double.infinity,
               // color: Colors.amber,
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: Dimensions.height20,
             ),
             Container(
               // height: 60,
-              padding: EdgeInsets.only(left: 20, right: 20),
+              padding: EdgeInsets.only(
+                  left: Dimensions.width20, right: Dimensions.width20),
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(Dimensions.height10),
                     ),
-                    minimumSize: Size(double.infinity, 70),
+                    minimumSize: Size(double.infinity, Dimensions.height20 * 3),
                   ),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()));
                   },
                   child: BigText(text: "Login")),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: Dimensions.height10,
             ),
             Container(
               // height: 60,
-              padding: EdgeInsets.only(left: 20, right: 20),
+              padding: EdgeInsets.only(
+                  left: Dimensions.width20, right: Dimensions.width20),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(Dimensions.height10),
                   ),
-                  minimumSize: Size(double.infinity, 70),
+                  minimumSize: Size(double.infinity, Dimensions.height20 * 3),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignUpScreen(),
+                      ));
+                },
                 child: BigText(
                   text: "Sign Up",
                   color: MyColors.blackColor,
