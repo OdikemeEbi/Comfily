@@ -191,7 +191,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: Dimensions.height20,
+                  height: NewDimensions.height20,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -207,7 +207,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: Dimensions.width10 - 7,
+                      width: NewDimensions.width10 - 7,
                     ),
                     const SmallText(
                         text: 'Sign in with', color: MyColors.blackColor),
@@ -216,7 +216,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Expanded(
                       child: Container(
-                        width: Dimensions.width20 * 5,
+                        width: NewDimensions.width20 * 5,
                         child: const Divider(
                           color: MyColors.blackColor,
                           thickness: 1,
@@ -226,7 +226,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: Dimensions.height20 * 2,
+                  height: NewDimensions.height20,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,

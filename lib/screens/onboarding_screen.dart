@@ -32,7 +32,7 @@ class Home extends StatelessWidget {
               height: Dimensions.height20,
             ),
             Container(
-              // height: 60,
+              height: NewDimensions.height52,
               padding: EdgeInsets.only(
                   left: Dimensions.width20, right: Dimensions.width20),
               child: ElevatedButton(
@@ -51,10 +51,10 @@ class Home extends StatelessWidget {
                   child: BigText(text: "Login")),
             ),
             SizedBox(
-              height: Dimensions.height10,
+              height: NewDimensions.height20,
             ),
             Container(
-              // height: 60,
+              height: NewDimensions.height52,
               padding: EdgeInsets.only(
                   left: Dimensions.width20, right: Dimensions.width20),
               child: ElevatedButton(
