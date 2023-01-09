@@ -29,46 +29,45 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       // appBar: AppBar(),
       body: Padding(
-        padding: EdgeInsets.all(Dimensions.height20),
-        child: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
-            child: Container(
-              width: NewDimensions.screenWidth,
-              height: NewDimensions.screenHeight,
+        padding: EdgeInsets.all(NewDimensions.height20),
+        child: SafeArea(
+          child: Form(
+            key: _formKey,
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
                       padding: EdgeInsets.only(
-                          left: Dimensions.width10 - 9,
-                          right: Dimensions.width10,
-                          top: Dimensions.height10 * 5),
+                          left: NewDimensions.width10 - 9,
+                          right: NewDimensions.width10,
+                          top: NewDimensions.height10),
                       child: BiggerText(
                         text: "Let’s explore together!",
                       )),
                   SizedBox(
-                    height: Dimensions.height10,
+                    height: NewDimensions.height10,
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.only(
-                        left: Dimensions.height10, right: Dimensions.height10),
+                        left: NewDimensions.height10,
+                        right: NewDimensions.height10),
                     child: const SmallText(
                       text:
-                          "Create your Comfily account to explore your\ndream place to live and be comfortable.",
+                          "Create your Comfily account to explore your dream\nplace to live and be comfortable.",
                       color: MyColors.greyColor,
                     ),
                   ),
                   SizedBox(
-                    height: Dimensions.height20 * 3,
+                    height: NewDimensions.height20 * 2,
                   ),
                   BigText(
                     text: "Email",
                   ),
                   SizedBox(
-                    height: Dimensions.height10,
+                    height: NewDimensions.height10,
                   ),
                   Container(
                     height: NewDimensions.height52,
@@ -83,13 +82,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: Dimensions.height20,
+                    height: NewDimensions.height20,
                   ),
                   BigText(
                     text: "Password",
                   ),
                   SizedBox(
-                    height: Dimensions.height10,
+                    height: NewDimensions.height10,
                   ),
                   Container(
                     height: NewDimensions.height52,
@@ -101,18 +100,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           border: OutlineInputBorder(
                               borderSide:
                                   const BorderSide(color: MyColors.blackColor),
-                              borderRadius:
-                                  BorderRadius.circular(Dimensions.height10))),
+                              borderRadius: BorderRadius.circular(
+                                  NewDimensions.height10))),
                     ),
                   ),
                   SizedBox(
-                    height: Dimensions.height20,
+                    height: NewDimensions.height20,
                   ),
                   BigText(
                     text: "Confirm Password",
                   ),
                   SizedBox(
-                    height: Dimensions.height10,
+                    height: NewDimensions.height10,
                   ),
                   Container(
                     height: NewDimensions.height52,
@@ -124,23 +123,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           border: OutlineInputBorder(
                               borderSide:
                                   const BorderSide(color: MyColors.blackColor),
-                              borderRadius:
-                                  BorderRadius.circular(Dimensions.height10))),
+                              borderRadius: BorderRadius.circular(
+                                  NewDimensions.height10))),
                     ),
                   ),
                   SizedBox(
-                    height: Dimensions.height20 * 2,
+                    height: NewDimensions.height20 * 2,
                   ),
                   Container(
                     height: NewDimensions.height52,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(Dimensions.height20 - 5),
+                            borderRadius: BorderRadius.circular(
+                                NewDimensions.height20 - 5),
                           ),
                           minimumSize:
-                              Size(double.infinity, Dimensions.height10 * 6),
+                              Size(double.infinity, NewDimensions.height10 * 6),
                         ),
                         onPressed: () {
                           Navigator.push(
@@ -152,7 +151,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: BigText(text: "Sign up")),
                   ),
                   SizedBox(
-                    height: Dimensions.height20,
+                    height: NewDimensions.height10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -168,12 +167,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             color: MyColors.mainColor,
                           )),
                       SizedBox(
-                        height: Dimensions.height20,
+                        height: NewDimensions.height20,
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: Dimensions.height20,
+                    height: NewDimensions.height20,
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -181,7 +180,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     children: [
                       Expanded(
                         child: Container(
-                          width: Dimensions.width20 * 5,
+                          width: NewDimensions.width20 * 5,
                           child: const Divider(
                             color: MyColors.blackColor,
                             thickness: 1,
@@ -189,16 +188,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: Dimensions.width10 - 7,
+                        width: NewDimensions.width10 - 7,
                       ),
                       const SmallText(
                           text: 'Sign in with', color: MyColors.blackColor),
                       SizedBox(
-                        width: Dimensions.width10 - 7,
+                        width: NewDimensions.width10 - 7,
                       ),
                       Expanded(
                         child: Container(
-                          width: Dimensions.width20 * 5,
+                          width: NewDimensions.width20 * 5,
                           child: const Divider(
                             color: MyColors.blackColor,
                             thickness: 1,
@@ -208,7 +207,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: Dimensions.height20 * 2,
+                    height: NewDimensions.height20,
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -223,7 +222,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       // const MyLogos(
                       //   image: AssetImage('assets/images/pic05.png'),
                       // ),
-                      SizedBox(width: Dimensions.width10),
+                      SizedBox(width: NewDimensions.width10),
                       MaterialButton(
                         onPressed: (() {}),
                         child: const MyLogos(
@@ -231,11 +230,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       )
                       // Container(
-                      //   height: Dimensions.height10 * 5,
-                      //   width: Dimensions.width10 * 2.5,
+                      //   height: NewDimensions.height10 * 5,
+                      //   width: NewDimensions.width10 * 2.5,
                       //   decoration: BoxDecoration(
                       //       borderRadius: BorderRadius.circular(
-                      //         Dimensions.height10,
+                      //         NewDimensions.height10,
                       //       ),
                       //       color: Color.fromARGB(255, 224, 236, 247)),
                       //   child: const Image(

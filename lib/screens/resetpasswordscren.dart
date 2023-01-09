@@ -51,8 +51,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         child: const Text(
                           'Reset password',
                           style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                          ),
+                              fontWeight: FontWeight.w600, fontSize: 16),
                         ),
                       ),
                       SizedBox(
@@ -92,10 +91,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius:
-                              BorderRadius.circular(Dimensions.height20 - 5),
+                              BorderRadius.circular(NewDimensions.height20 - 5),
                         ),
                         minimumSize:
-                            Size(double.infinity, Dimensions.height10 * 6),
+                            Size(double.infinity, NewDimensions.height10 * 6),
                       ),
                       onPressed: () {},
                       child: BigText(text: "Reset password")),

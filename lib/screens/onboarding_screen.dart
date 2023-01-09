@@ -24,23 +24,25 @@ class Home extends StatelessWidget {
                   image: DecorationImage(
                       image: AssetImage("assets/images/pic02.png"),
                       fit: BoxFit.fill)),
-              height: MediaQuery.of(context).size.height / 1.35,
-              width: double.infinity,
+              height: MediaQuery.of(context).size.height / 1.40,
+              width: double.maxFinite,
               // color: Colors.amber,
             ),
             SizedBox(
-              height: Dimensions.height20,
+              height: NewDimensions.height20,
             ),
             Container(
               height: NewDimensions.height52,
               padding: EdgeInsets.only(
-                  left: Dimensions.width20, right: Dimensions.width20),
+                  left: NewDimensions.width20, right: NewDimensions.width20),
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(Dimensions.height10),
+                      borderRadius:
+                          BorderRadius.circular(NewDimensions.height10),
                     ),
-                    minimumSize: Size(double.infinity, Dimensions.height20 * 3),
+                    minimumSize:
+                        Size(double.infinity, NewDimensions.height20 * 3),
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -56,14 +58,15 @@ class Home extends StatelessWidget {
             Container(
               height: NewDimensions.height52,
               padding: EdgeInsets.only(
-                  left: Dimensions.width20, right: Dimensions.width20),
+                  left: NewDimensions.width20, right: NewDimensions.width20),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(Dimensions.height10),
+                    borderRadius: BorderRadius.circular(NewDimensions.height10),
                   ),
-                  minimumSize: Size(double.infinity, Dimensions.height20 * 3),
+                  minimumSize:
+                      Size(double.infinity, NewDimensions.height20 * 3),
                 ),
                 onPressed: () {
                   Navigator.push(

@@ -1,3 +1,4 @@
+import 'package:comfily/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class BiggerText extends StatelessWidget {
@@ -52,7 +53,7 @@ class BigText extends StatelessWidget {
       text,
       style: TextStyle(
           color: color,
-          fontSize: 16,
+          fontSize: NewDimensions.height20 - 4,
           fontWeight: FontWeight.w500,
           fontFamily: "Roboto"),
     );
