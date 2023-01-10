@@ -39,11 +39,11 @@ class MyLogos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimensions.height10 * 5,
-      width: Dimensions.width10 * 2.5,
+      height: NewDimensions.height10 * 5,
+      width: NewDimensions.width10 * 2.5,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
-          Dimensions.height10,
+          NewDimensions.height10,
         ),
         // color: Color.fromARGB(255, 228, 239, 248)
       ),

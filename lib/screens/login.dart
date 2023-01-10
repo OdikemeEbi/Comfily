@@ -1,3 +1,4 @@
+import 'package:comfily/screens/homescreen.dart';
 import 'package:comfily/screens/resetpasswordscren.dart';
 import 'package:comfily/screens/signupscreen.dart';
 import 'package:comfily/utils/dimensions.dart';
@@ -144,7 +145,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           minimumSize:
                               Size(double.infinity, NewDimensions.height52),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const HomeScreen(),
+                              ));
+                        },
                         child: BigText(text: "Login")),
                   ),
                   SizedBox(

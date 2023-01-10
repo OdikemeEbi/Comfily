@@ -31,4 +31,8 @@ class NewDimensions {
   // WIDTHS
   static double width10 = screenHeight / 39.3;
   static double width20 = screenHeight / 19.65;
+
+  // fonts
+  static double font10 = screenHeight / 73.8;
+  static double font20 = screenHeight / 36.9;
 }
