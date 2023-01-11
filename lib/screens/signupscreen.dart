@@ -13,6 +13,10 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  bool isObscure = true;
+
+  bool? _value = false;
+
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController email = TextEditingController();
@@ -79,6 +83,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               borderSide:
                                   const BorderSide(color: MyColors.blackColor),
                               borderRadius: BorderRadius.circular(10))),
+                      validator: (value) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                .hasMatch(value)) {
+                          return 'Please enter a valid email';
+                        }
+                        return null;
+                      },
                     ),
                   ),
                   SizedBox(
@@ -102,6 +115,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   const BorderSide(color: MyColors.blackColor),
                               borderRadius: BorderRadius.circular(
                                   NewDimensions.height10))),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Password is required";
+                        }
+                        return null;
+                      },
                     ),
                   ),
                   SizedBox(
@@ -125,6 +144,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   const BorderSide(color: MyColors.blackColor),
                               borderRadius: BorderRadius.circular(
                                   NewDimensions.height10))),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Password is required";
+                        } else if (value != password.text) {
+                          return "Password does not match";
+                        }
+                        return null;
+                      },
                     ),
                   ),
                   SizedBox(
@@ -142,11 +169,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               Size(double.infinity, NewDimensions.height10 * 6),
                         ),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const EditProfileScreen()));
+                          if (_formKey.currentState!.validate()) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const EditProfileScreen()));
+                          }
                         },
                         child: BigText(text: "Sign up")),
                   ),

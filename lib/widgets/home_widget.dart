@@ -1,4 +1,7 @@
 import 'package:comfily/screens/bedsitter_detail.dart';
+import 'package:comfily/screens/bungalow_details.dart';
+import 'package:comfily/screens/duplex_details.dart';
+import 'package:comfily/screens/flat_details.dart';
 import 'package:comfily/screens/housedetail.dart';
 import 'package:flutter/material.dart';
 
@@ -45,34 +48,37 @@ class _MyWidgetState extends State<HomeWidget> {
               child: Column(
                 children: [
                   Container(
+                    height: NewDimensions.height20 * 3 + 5,
                     child: Row(
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: NewDimensions.height10,
-                            ),
-                            Container(
-                              width: NewDimensions.width20 * 5.8,
-                              height: NewDimensions.height52,
-                              child: TextFormField(
-                                controller: search,
-                                decoration: InputDecoration(
-                                    hintText: "Find Property",
-                                    hintStyle: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: NewDimensions.height10 + 4,
-                                        fontWeight: FontWeight.w500),
-                                    prefixIcon: Icon(Icons.search),
-                                    border: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: MyColors.blackColor),
-                                        borderRadius: BorderRadius.circular(
-                                            NewDimensions.height20 * 2))),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: NewDimensions.height10,
                               ),
-                            ),
-                          ],
+                              Container(
+                                width: NewDimensions.width20 * 5.8,
+                                height: NewDimensions.height52,
+                                child: TextFormField(
+                                  controller: search,
+                                  decoration: InputDecoration(
+                                      hintText: "Find Property",
+                                      hintStyle: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: NewDimensions.height10 + 4,
+                                          fontWeight: FontWeight.w500),
+                                      prefixIcon: Icon(Icons.search),
+                                      border: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              color: MyColors.blackColor),
+                                          borderRadius: BorderRadius.circular(
+                                              NewDimensions.height20 * 2))),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         SizedBox(
                           width: NewDimensions.width10,
@@ -149,7 +155,13 @@ class _MyWidgetState extends State<HomeWidget> {
                                   BorderRadius.circular(NewDimensions.height10),
                               color: MyColors.mainColor),
                           child: MaterialButton(
-                            onPressed: (() {}),
+                            onPressed: (() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => FlatDetails(),
+                                  ));
+                            }),
                             child: SmallText(
                               text: 'FLAT',
                               color: MyColors.whiteColor,
@@ -167,7 +179,13 @@ class _MyWidgetState extends State<HomeWidget> {
                                   BorderRadius.circular(NewDimensions.height10),
                               color: MyColors.mainColor),
                           child: MaterialButton(
-                            onPressed: (() {}),
+                            onPressed: (() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => BungalowDetails(),
+                                  ));
+                            }),
                             child: SmallText(
                               text: 'BUNGALOW',
                               color: MyColors.whiteColor,
@@ -185,7 +203,13 @@ class _MyWidgetState extends State<HomeWidget> {
                                   BorderRadius.circular(NewDimensions.height10),
                               color: MyColors.mainColor),
                           child: MaterialButton(
-                            onPressed: (() {}),
+                            onPressed: (() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DuplexDetails(),
+                                  ));
+                            }),
                             child: SmallText(
                               text: 'DUPLEX',
                               color: MyColors.whiteColor,

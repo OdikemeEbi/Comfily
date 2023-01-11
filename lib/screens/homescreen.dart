@@ -32,6 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         body: selectedIndex[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
+            mouseCursor: MouseCursor.uncontrolled,
+            unselectedIconTheme: IconThemeData(color: MyColors.mainColor),
             backgroundColor: MyColors.whiteColor,
             currentIndex: currentIndex,
             onTap: (value) {
