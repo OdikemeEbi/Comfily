@@ -47,27 +47,29 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/images/pic01.png"))),
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            // color: Colors.blue,
-            // child: Center(
-            //   child: Container(
-            //     width: 40,
-            //     height: 40,
-            //     child: const CircularProgressIndicator(
-            //       color: Colors.white,
-            //       backgroundColor: Colors.amber,
-            //     ),
-            //   ),
-            // ),
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/pic01.png"))),
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              // color: Colors.blue,
+              // child: Center(
+              //   child: Container(
+              //     width: 40,
+              //     height: 40,
+              //     child: const CircularProgressIndicator(
+              //       color: Colors.white,
+              //       backgroundColor: Colors.amber,
+              //     ),
+              //   ),
+              // ),
+            ),
+          ],
+        ),
       ),
     );
   }

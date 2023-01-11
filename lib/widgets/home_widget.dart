@@ -1,3 +1,5 @@
+import 'package:comfily/screens/bedsitter_detail.dart';
+import 'package:comfily/screens/housedetail.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/dimensions.dart';
@@ -12,6 +14,17 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<HomeWidget> {
+  List<String> _gridList = ['BEDSITTER', 'FLAT', 'BUNGALOW', 'DUPLEX'];
+  List<String> _imageList = [
+    'assets/images/pic06.png',
+    'assets/images/pico8.png',
+    'assets/images/pic09.png',
+    'assets/images/pic10.png',
+    'assets/images/pic11.png',
+    'assets/images/pic12.png',
+    'assets/images/pic07.png'
+  ];
+
   final TextEditingController name = TextEditingController();
   final TextEditingController search = TextEditingController();
   @override
@@ -56,7 +69,7 @@ class _MyWidgetState extends State<HomeWidget> {
                                         borderSide: const BorderSide(
                                             color: MyColors.blackColor),
                                         borderRadius: BorderRadius.circular(
-                                            NewDimensions.height20))),
+                                            NewDimensions.height20 * 2))),
                               ),
                             ),
                           ],
@@ -86,7 +99,7 @@ class _MyWidgetState extends State<HomeWidget> {
                                         borderSide: const BorderSide(
                                             color: MyColors.mainColor),
                                         borderRadius: BorderRadius.circular(
-                                            NewDimensions.height20))),
+                                            NewDimensions.height20 * 2))),
                               ),
                             ),
                           ],
@@ -95,21 +108,30 @@ class _MyWidgetState extends State<HomeWidget> {
                     ),
                   ),
                   SizedBox(
-                    height: NewDimensions.height20,
+                    height: NewDimensions.height10,
                   ),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
                         Container(
-                          height: NewDimensions.height20 * 2,
+                          // height: 30,
+                          // width: 100,
+                          height: NewDimensions.height20 + 10,
                           width: NewDimensions.width20 * 3,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                  NewDimensions.height10 + 5),
+                              borderRadius:
+                                  BorderRadius.circular(NewDimensions.height10),
                               color: MyColors.mainColor),
                           child: MaterialButton(
-                            onPressed: (() {}),
+                            onPressed: (() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const BedsitterDetails(),
+                                  ));
+                            }),
                             child: SmallText(
                               text: 'BEDSITTER',
                               color: MyColors.whiteColor,
@@ -120,11 +142,11 @@ class _MyWidgetState extends State<HomeWidget> {
                           width: NewDimensions.width10,
                         ),
                         Container(
-                          height: NewDimensions.height20 * 2,
+                          height: NewDimensions.height20 + 10,
                           width: NewDimensions.width20 * 3,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                  NewDimensions.height10 + 5),
+                              borderRadius:
+                                  BorderRadius.circular(NewDimensions.height10),
                               color: MyColors.mainColor),
                           child: MaterialButton(
                             onPressed: (() {}),
@@ -138,11 +160,11 @@ class _MyWidgetState extends State<HomeWidget> {
                           width: NewDimensions.width10,
                         ),
                         Container(
-                          height: NewDimensions.height20 * 2,
+                          height: NewDimensions.height20 + 10,
                           width: NewDimensions.width20 * 3,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                  NewDimensions.height10 + 5),
+                              borderRadius:
+                                  BorderRadius.circular(NewDimensions.height10),
                               color: MyColors.mainColor),
                           child: MaterialButton(
                             onPressed: (() {}),
@@ -156,16 +178,16 @@ class _MyWidgetState extends State<HomeWidget> {
                           width: NewDimensions.width10,
                         ),
                         Container(
-                          height: NewDimensions.height20 * 2,
+                          height: NewDimensions.height20 + 10,
                           width: NewDimensions.width20 * 4,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                  NewDimensions.height10 + 5),
+                              borderRadius:
+                                  BorderRadius.circular(NewDimensions.height10),
                               color: MyColors.mainColor),
                           child: MaterialButton(
                             onPressed: (() {}),
                             child: SmallText(
-                              text: 'BEDSITTER',
+                              text: 'DUPLEX',
                               color: MyColors.whiteColor,
                             ),
                           ),
@@ -174,38 +196,54 @@ class _MyWidgetState extends State<HomeWidget> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       BigText(text: 'FREQUENTLY SEARCHED'),
                     ],
                   ),
                   SizedBox(
-                    height: NewDimensions.height20,
+                    height: NewDimensions.height10,
                   ),
                   Container(
                     height: 120,
                     child: ListView.builder(
                       shrinkWrap: true,
+                      reverse: true,
                       itemCount: 6,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return Container(
-                          margin: EdgeInsets.only(left: 3, right: 3),
+                          margin:
+                              EdgeInsets.only(right: NewDimensions.width10 + 5),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(
-                                        NewDimensions.height20),
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/pic07.png'),
-                                        fit: BoxFit.cover)),
-                                width: 100,
-                                height: 100,
-                                // color: Colors.yellow,
+                              InkWell(
+                                onTap: (() {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            HouseDetailScreen(),
+                                      ));
+                                }),
+                                splashColor: MyColors.greyColor,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(
+                                          NewDimensions.height20 - 5),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              '${_imageList[index]}'),
+                                          fit: BoxFit.cover)),
+                                  width: 100,
+                                  height: 100,
+                                  // color: Colors.yellow,
+                                ),
                               ),
                               SizedBox(
                                 height: NewDimensions.height20,
@@ -216,44 +254,52 @@ class _MyWidgetState extends State<HomeWidget> {
                       },
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    // height: 1000,
-                    // width: 300,
-                    child: GridView.builder(
-                      controller: new ScrollController(keepScrollOffset: false),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                      ),
-                      itemCount: 4,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Column(
-                          children: [
-                            Row(
-                              children: [
-                                BigText(text: 'BUNGALOW'),
-                              ],
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/images/pico8.png'),
-                                      fit: BoxFit.cover)),
-                              height: 150,
-                              width: 157,
-                              // color: Colors.blue,
-                            ),
-                          ],
-                        );
-                      },
+                  // SizedBox(
+                  //   height: NewDimensions.height20,
+                  // ),
+                  GridView.builder(
+                    controller: new ScrollController(keepScrollOffset: false),
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
                     ),
+                    itemCount: 4,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        // height: 300,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  BigText(text: '${_gridList[index]}'),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              '${_imageList[index]}'),
+                                          fit: BoxFit.cover)),
+
+                                  height: 170,
+                                  width: 157,
+                                  // color: Colors.blue,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),

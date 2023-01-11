@@ -1,64 +1,69 @@
-import 'package:comfily/utils/mytext.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 import '../utils/dimensions.dart';
 import '../utils/mycolors.dart';
+import '../utils/mytext.dart';
 
-class FavouriteWidget extends StatefulWidget {
-  const FavouriteWidget({super.key});
+class BedsitterDetails extends StatefulWidget {
+  const BedsitterDetails({super.key});
 
   @override
-  State<FavouriteWidget> createState() => _MyWidgetState();
+  State<BedsitterDetails> createState() => _BedsitterDetailsState();
 }
 
-class _MyWidgetState extends State<FavouriteWidget> {
+class _BedsitterDetailsState extends State<BedsitterDetails> {
   List<String> _imageList = [
-    'assets/images/pic001.png',
-    'assets/images/pic002.png',
-    'assets/images/pic003.png',
-    'assets/images/pic004.png',
+    'assets/images/pic13.png',
+    'assets/images/pic12.png',
+    'assets/images/pic14.png',
+    'assets/images/pic15.png',
     'assets/images/pic11.png',
     'assets/images/pic12.png',
     'assets/images/pic07.png'
   ];
 
-  final TextEditingController search = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Favourite'),
-      // ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(NewDimensions.height20),
             child: Column(
               children: [
-                Container(
-                  width: double.maxFinite,
-                  height: NewDimensions.height52,
-                  child: TextFormField(
-                    controller: search,
-                    decoration: InputDecoration(
-                        hintText: "Find Property",
-                        hintStyle: TextStyle(
-                            color: Colors.grey,
-                            fontSize: NewDimensions.height10 + 4,
-                            fontWeight: FontWeight.w500),
-                        prefixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: MyColors.blackColor),
-                            borderRadius: BorderRadius.circular(
-                                NewDimensions.height20 * 2))),
-                  ),
+                Row(
+                  children: [
+                    IconButton(
+                        onPressed: (() {
+                          Navigator.pop(context);
+                        }),
+                        icon: Icon(
+                          Icons.arrow_back_ios_new,
+                          size: NewDimensions.height10 + 5,
+                          color: MyColors.mainColor,
+                        )),
+                    SizedBox(
+                      width: NewDimensions.width10,
+                    ),
+                    Text(
+                      'Bedsitter to let',
+                      style: TextStyle(
+                          fontSize: NewDimensions.height10 + 4,
+                          fontWeight: FontWeight.bold),
+                    )
+                    // SmallText(
+                    //   text: 'Bedsitter to let',
+                    //   color: MyColors.blackColor,
+                    // )
+                  ],
                 ),
                 SizedBox(
-                  height: NewDimensions.height20,
+                  height: NewDimensions.height10,
                 ),
                 Container(
-                  height: 900,
+                  // height: 900,
                   child: ListView.builder(
                     // reverse: true,
                     shrinkWrap: true,

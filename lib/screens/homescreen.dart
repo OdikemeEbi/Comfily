@@ -32,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         body: selectedIndex[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: MyColors.whiteColor,
             currentIndex: currentIndex,
             onTap: (value) {
               setState(() {
@@ -44,11 +45,11 @@ class _HomeScreenState extends State<HomeScreen> {
             items: const [
               BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
               BottomNavigationBarItem(
-                  label: 'Favourite', icon: Icon(Icons.favorite)),
+                  label: 'Favourite', icon: Icon(Icons.star)),
               BottomNavigationBarItem(
                   label: 'Add Property', icon: Icon(Icons.add_box_rounded)),
               BottomNavigationBarItem(
-                  label: 'Chat', icon: Icon(Icons.chat_bubble_outline_rounded)),
+                  label: 'Chat', icon: Icon(Icons.chat_sharp)),
               BottomNavigationBarItem(
                   label: 'Profile', icon: Icon(Icons.person))
             ]));
