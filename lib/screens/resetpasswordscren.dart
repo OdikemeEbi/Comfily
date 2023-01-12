@@ -1,3 +1,4 @@
+import 'package:comfily/screens/editprofile.dart';
 import 'package:comfily/screens/signupscreen.dart';
 import 'package:comfily/utils/dimensions.dart';
 import 'package:comfily/utils/mycolors.dart';
@@ -80,6 +81,15 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                                 const BorderSide(color: MyColors.blackColor),
                             borderRadius:
                                 BorderRadius.circular(NewDimensions.height10))),
+                    validator: (value) {
+                      if (value == null ||
+                          value.isEmpty ||
+                          !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(value)) {
+                        return 'Please enter a valid email';
+                      }
+                      return null;
+                    },
                   ),
                 ),
                 SizedBox(
@@ -96,7 +106,15 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         minimumSize:
                             Size(double.infinity, NewDimensions.height10 * 6),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const EditProfileScreen()));
+                        }
+                      },
                       child: BigText(text: "Reset password")),
                 ),
               ],

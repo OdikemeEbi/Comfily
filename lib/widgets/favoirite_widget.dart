@@ -58,15 +58,15 @@ class _MyWidgetState extends State<FavouriteWidget> {
                   height: NewDimensions.height20,
                 ),
                 Container(
-                  height: 900,
+                  height: NewDimensions.listViewHeight,
                   child: ListView.builder(
                     // reverse: true,
                     shrinkWrap: true,
                     itemCount: 6,
-                    // scrollDirection: Axis.horizontal,
+                    scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
                       return Container(
-                        margin: EdgeInsets.only(left: 3, right: 3),
+                        padding: EdgeInsets.only(left: 10, right: 3, bottom: 0),
                         child: Column(
                           children: [
                             Row(
@@ -76,8 +76,7 @@ class _MyWidgetState extends State<FavouriteWidget> {
                                       borderRadius: BorderRadius.circular(
                                           NewDimensions.height20 - 5),
                                       image: DecorationImage(
-                                          image: AssetImage(
-                                              '${_imageList[index]}'),
+                                          image: AssetImage(_imageList[index]),
                                           fit: BoxFit.cover)),
                                   width: 138,
                                   height: 92,

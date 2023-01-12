@@ -1,3 +1,4 @@
+import 'package:comfily/screens/bedsitterhousedetail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -63,7 +64,7 @@ class _BedsitterDetailsState extends State<BedsitterDetails> {
                   height: NewDimensions.height10,
                 ),
                 Container(
-                  // height: 900,
+                  height: NewDimensions.listViewHeight1,
                   child: ListView.builder(
                     // reverse: true,
                     shrinkWrap: true,
@@ -76,17 +77,28 @@ class _BedsitterDetailsState extends State<BedsitterDetails> {
                           children: [
                             Row(
                               children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                          NewDimensions.height20 - 5),
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              '${_imageList[index]}'),
-                                          fit: BoxFit.cover)),
-                                  width: 138,
-                                  height: 92,
-                                  // color: Colors.yellow,
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              BedsitterHouseDetails(),
+                                        ));
+                                  },
+                                  splashColor: MyColors.greyColor,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(
+                                            NewDimensions.height20 - 5),
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                '${_imageList[index]}'),
+                                            fit: BoxFit.cover)),
+                                    width: 138,
+                                    height: 92,
+                                    // color: Colors.yellow,
+                                  ),
                                 ),
                                 SizedBox(
                                   width: NewDimensions.width20,

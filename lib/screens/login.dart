@@ -15,6 +15,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool isObscure = true;
+
+  bool? _value = false;
+
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController email = TextEditingController();
@@ -79,6 +83,15 @@ class _LoginScreenState extends State<LoginScreen> {
                               borderSide:
                                   const BorderSide(color: MyColors.blackColor),
                               borderRadius: BorderRadius.circular(10))),
+                      validator: (value) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                .hasMatch(value)) {
+                          return 'Please enter a valid email';
+                        }
+                        return null;
+                      },
                     ),
                   ),
                   SizedBox(
@@ -102,6 +115,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                   const BorderSide(color: MyColors.blackColor),
                               borderRadius:
                                   BorderRadius.circular(Dimensions.height10))),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Password is required";
+                        }
+                        return null;
+                      },
                     ),
                   ),
                   SizedBox(
@@ -146,11 +165,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               Size(double.infinity, NewDimensions.height52),
                         ),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const HomeScreen(),
-                              ));
+                          if (_formKey.currentState!.validate()) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomeScreen()));
+                          }
                         },
                         child: BigText(text: "Login")),
                   ),

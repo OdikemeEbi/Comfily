@@ -1,4 +1,5 @@
 import 'package:comfily/screens/editprofile.dart';
+import 'package:comfily/screens/login.dart';
 import 'package:comfily/utils/dimensions.dart';
 import 'package:comfily/utils/mycolors.dart';
 import 'package:comfily/utils/mytext.dart';
@@ -190,7 +191,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         color: MyColors.blackColor,
                       ),
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginScreen(),
+                                ));
+                          },
                           child: const SmallText(
                             text: "Login",
                             color: MyColors.mainColor,

@@ -35,4 +35,8 @@ class NewDimensions {
   // fonts
   static double font10 = screenHeight / 73.8;
   static double font20 = screenHeight / 36.9;
+
+  // LISTVIEW HEIGHT
+  static double listViewHeight = screenHeight / 1.3178;
+  static double listViewHeight1 = screenHeight / 1.1902;
 }

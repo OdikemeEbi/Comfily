@@ -2,7 +2,7 @@ import 'package:comfily/screens/bedsitter_detail.dart';
 import 'package:comfily/screens/bungalow_details.dart';
 import 'package:comfily/screens/duplex_details.dart';
 import 'package:comfily/screens/flat_details.dart';
-import 'package:comfily/screens/housedetail.dart';
+import 'package:comfily/screens/bedsitterhousedetail.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/dimensions.dart';
@@ -100,7 +100,8 @@ class _MyWidgetState extends State<HomeWidget> {
                                         color: Colors.grey,
                                         fontSize: NewDimensions.height10 + 4,
                                         fontWeight: FontWeight.w500),
-                                    prefixIcon: Icon(Icons.arrow_back_rounded),
+                                    prefixIcon:
+                                        Icon(Icons.account_tree_rounded),
                                     border: OutlineInputBorder(
                                         borderSide: const BorderSide(
                                             color: MyColors.mainColor),
@@ -252,7 +253,7 @@ class _MyWidgetState extends State<HomeWidget> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            HouseDetailScreen(),
+                                            const BedsitterHouseDetails(),
                                       ));
                                 }),
                                 splashColor: MyColors.greyColor,

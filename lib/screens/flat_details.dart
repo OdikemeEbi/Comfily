@@ -10,10 +10,18 @@ class FlatDetails extends StatefulWidget {
   const FlatDetails({super.key});
 
   @override
-  State<FlatDetails> createState() => _BedsitterDetailsState();
+  State<FlatDetails> createState() => _FlatDetailsState();
 }
 
-class _BedsitterDetailsState extends State<FlatDetails> {
+class _FlatDetailsState extends State<FlatDetails> {
+  List<String> _imageList2 = [
+    'assets/images/flat01.png',
+    'assets/images/flat02.png',
+    'assets/images/flat03.png',
+    'assets/images/flat04.png',
+    'assets/images/flat05.png',
+    'assets/images/flat06.png',
+  ];
   List<String> _imageList = [
     'assets/images/pic13.png',
     'assets/images/pic12.png',
@@ -63,9 +71,9 @@ class _BedsitterDetailsState extends State<FlatDetails> {
                   height: NewDimensions.height10,
                 ),
                 Container(
-                  // height: 900,
+                  height: NewDimensions.listViewHeight1,
                   child: ListView.builder(
-                    // reverse: true,
+                    reverse: true,
                     shrinkWrap: true,
                     itemCount: 6,
                     // scrollDirection: Axis.horizontal,
@@ -82,7 +90,7 @@ class _BedsitterDetailsState extends State<FlatDetails> {
                                           NewDimensions.height20 - 5),
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              '${_imageList[index]}'),
+                                              '${_imageList2[index]}'),
                                           fit: BoxFit.cover)),
                                   width: 138,
                                   height: 92,

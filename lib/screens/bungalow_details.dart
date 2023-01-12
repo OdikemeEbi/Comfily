@@ -63,7 +63,7 @@ class _BedsitterDetailsState extends State<BungalowDetails> {
                   height: NewDimensions.height10,
                 ),
                 Container(
-                  // height: 900,
+                  height: NewDimensions.listViewHeight1,
                   child: ListView.builder(
                     // reverse: true,
                     shrinkWrap: true,
