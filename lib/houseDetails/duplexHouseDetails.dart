@@ -117,7 +117,7 @@ class _DuplexHouseDetailsState extends State<DuplexHouseDetails> {
                     Row(
                       children: [
                         Text(
-                          'Bedsitter for Rent',
+                          '5 Bedroom duplexes for rent',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: NewDimensions.font10 + 6,
@@ -126,7 +126,7 @@ class _DuplexHouseDetailsState extends State<DuplexHouseDetails> {
                       ],
                     ),
                     Text(
-                      '\#500,000',
+                      '\#15,000,000',
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: NewDimensions.font10 + 6,
@@ -164,7 +164,7 @@ class _DuplexHouseDetailsState extends State<DuplexHouseDetails> {
                       height: NewDimensions.height10,
                     ),
                     Text(
-                      'The apartment is fully furnished with nice interior\nfinishing. ',
+                      '5 bedroom Duplex fully furnished, kitchen, toilet,\nand sitting room,with tight security with 24/7\npower supply.. ',
                       style: TextStyle(
                         fontSize: NewDimensions.font10 + 6,
                       ),

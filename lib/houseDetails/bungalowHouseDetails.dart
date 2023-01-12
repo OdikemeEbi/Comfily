@@ -117,7 +117,7 @@ class _BungalowHouseDetailsState extends State<BungalowHouseDetails> {
                     Row(
                       children: [
                         Text(
-                          'Bedsitter for Rent',
+                          'Furnished 4 bedroom Bungalow for Rent',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: NewDimensions.font10 + 6,
@@ -126,7 +126,7 @@ class _BungalowHouseDetailsState extends State<BungalowHouseDetails> {
                       ],
                     ),
                     Text(
-                      '\#500,000',
+                      '\#4,000,000',
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: NewDimensions.font10 + 6,
@@ -164,7 +164,7 @@ class _BungalowHouseDetailsState extends State<BungalowHouseDetails> {
                       height: NewDimensions.height10,
                     ),
                     Text(
-                      'The apartment is fully furnished with nice interior\nfinishing. ',
+                      'The apartment has 2 Kitchens, 4 Rooms, 2\nBalconies, 2 Parlours and 1 Garage. Electricity and Security is 247 in the estate.  . ',
                       style: TextStyle(
                         fontSize: NewDimensions.font10 + 6,
                       ),

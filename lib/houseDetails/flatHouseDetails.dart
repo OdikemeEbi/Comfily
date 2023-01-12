@@ -117,7 +117,7 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                     Row(
                       children: [
                         Text(
-                          'Bedsitter for Rent',
+                          'Newly Built Furnished 3 Bedroom Flats',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: NewDimensions.font10 + 6,
@@ -126,7 +126,7 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                       ],
                     ),
                     Text(
-                      '\#500,000',
+                      '\#3,000,000',
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: NewDimensions.font10 + 6,
@@ -164,7 +164,7 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                       height: NewDimensions.height10,
                     ),
                     Text(
-                      'The apartment is fully furnished with nice interior\nfinishing. ',
+                      '1 Kitchen, 3 Rooms, 2 Balconies, 2 Parlour and 1\nGarage. Good Electricity, Constant Water Supply and\nSecurity is 247 in the estate.  . ',
                       style: TextStyle(
                         fontSize: NewDimensions.font10 + 6,
                       ),

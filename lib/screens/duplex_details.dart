@@ -15,11 +15,11 @@ class DuplexDetails extends StatefulWidget {
 
 class _BedsitterDetailsState extends State<DuplexDetails> {
   List<String> _imageList = [
-    'assets/images/pic13.png',
-    'assets/images/pic12.png',
-    'assets/images/pic14.png',
-    'assets/images/pic15.png',
-    'assets/images/pic11.png',
+    'assets/images/duplex01.png',
+    'assets/images/duplex02.png',
+    'assets/images/duplex03.png',
+    'assets/images/duplex04.png',
+    'assets/images/duplex05.png',
     'assets/images/pic12.png',
     'assets/images/pic07.png'
   ];
