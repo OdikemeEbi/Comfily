@@ -1,3 +1,4 @@
+import 'package:comfily/houseDetails/bungalowHouseDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -15,11 +16,11 @@ class BungalowDetails extends StatefulWidget {
 
 class _BedsitterDetailsState extends State<BungalowDetails> {
   List<String> _imageList = [
-    'assets/images/pic13.png',
-    'assets/images/pic12.png',
-    'assets/images/pic14.png',
-    'assets/images/pic15.png',
-    'assets/images/pic11.png',
+    'assets/images/bungalow1.png',
+    'assets/images/pic001.png',
+    'assets/images/pic002.png',
+    'assets/images/bungalow1.png',
+    'assets/images/pic09.png',
     'assets/images/pic12.png',
     'assets/images/pic07.png'
   ];
@@ -76,17 +77,27 @@ class _BedsitterDetailsState extends State<BungalowDetails> {
                           children: [
                             Row(
                               children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                          NewDimensions.height20 - 5),
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              '${_imageList[index]}'),
-                                          fit: BoxFit.cover)),
-                                  width: 138,
-                                  height: 92,
-                                  // color: Colors.yellow,
+                                InkWell(
+                                  onTap: (() {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              BungalowHouseDetails(),
+                                        ));
+                                  }),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(
+                                            NewDimensions.height20 - 5),
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                '${_imageList[index]}'),
+                                            fit: BoxFit.cover)),
+                                    width: 138,
+                                    height: 92,
+                                    // color: Colors.yellow,
+                                  ),
                                 ),
                                 SizedBox(
                                   width: NewDimensions.width20,

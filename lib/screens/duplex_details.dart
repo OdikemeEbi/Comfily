@@ -48,7 +48,7 @@ class _BedsitterDetailsState extends State<DuplexDetails> {
                       width: NewDimensions.width10,
                     ),
                     Text(
-                      'Bedsitter to let',
+                      'Latest and affordeble Duplexes for rent',
                       style: TextStyle(
                           fontSize: NewDimensions.height10 + 4,
                           fontWeight: FontWeight.bold),

@@ -1,3 +1,4 @@
+import 'package:comfily/houseDetails/flatHouseDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -84,17 +85,27 @@ class _FlatDetailsState extends State<FlatDetails> {
                           children: [
                             Row(
                               children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                          NewDimensions.height20 - 5),
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              '${_imageList2[index]}'),
-                                          fit: BoxFit.cover)),
-                                  width: 138,
-                                  height: 92,
-                                  // color: Colors.yellow,
+                                InkWell(
+                                  onTap: (() {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              FlatHouseDetails(),
+                                        ));
+                                  }),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(
+                                            NewDimensions.height20 - 5),
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                '${_imageList2[index]}'),
+                                            fit: BoxFit.cover)),
+                                    width: 138,
+                                    height: 92,
+                                    // color: Colors.yellow,
+                                  ),
                                 ),
                                 SizedBox(
                                   width: NewDimensions.width20,

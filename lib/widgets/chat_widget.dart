@@ -1,6 +1,9 @@
+import 'package:comfily/screens/chatScreen.dart';
+import 'package:comfily/utils/mycolors.dart';
 import 'package:flutter/material.dart';
 
 import '../models/chat_users_model.dart';
+import '../utils/dimensions.dart';
 import 'conversationList.dart';
 
 class ChatWidget extends StatefulWidget {
@@ -37,6 +40,12 @@ class _MyWidgetState extends State<ChatWidget> {
     "assets/images/avatar005.png",
     "assets/images/avatar006.png",
     "assets/images/avatar001.png",
+    "assets/images/avatar002.png",
+    "assets/images/avatar003.png",
+    "assets/images/avatar004.png",
+    "assets/images/avatar005.png",
+    "assets/images/avatar006.png",
+    // "assets/images/avatar001.png",
   ];
 
   List<ChatUsers> chatUsers = [
@@ -120,42 +129,7 @@ class _MyWidgetState extends State<ChatWidget> {
             SafeArea(
               child: Padding(
                 padding: EdgeInsets.only(left: 16, right: 16, top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      "Conversations",
-                      style:
-                          TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      padding:
-                          EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 2),
-                      height: 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.pink[50],
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.add,
-                            color: Colors.pink,
-                            size: 20,
-                          ),
-                          SizedBox(
-                            width: 2,
-                          ),
-                          Text(
-                            "Add New",
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                // child: s
               ),
             ),
             Padding(
@@ -174,26 +148,42 @@ class _MyWidgetState extends State<ChatWidget> {
                   contentPadding: EdgeInsets.all(8),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(color: Colors.grey.shade100)),
+                      borderSide: BorderSide(color: MyColors.mainColor)),
                 ),
               ),
             ),
             Container(
-              height: 500,
+              height: 900,
               child: ListView.builder(
                 itemCount: _textList.length,
                 shrinkWrap: true,
-                padding: EdgeInsets.only(top: 16),
+                padding: EdgeInsets.only(top: NewDimensions.height20 - 10),
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
-                  return ConversationList(
-                    // image:_imageList[index],
-                    name: _nameList[index],
-                    messageText: _textList[index],
-                    imageUrl: _imageList2[index],
-                    time: chatUsers[index].time,
-                    isMessageRead: (index == 0 || index == 3) ? true : false,
+                  return ListTile(
+                    leading: CircleAvatar(
+                      backgroundImage: AssetImage(_imageList2[index]),
+                    ),
+                    title: InkWell(
+                        onTap: (() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChatScreen(),
+                              ));
+                        }),
+                        child: Text(_nameList[index])),
+                    subtitle: Text(_textList[index]),
                   );
+                  // ConversationList(
+
+                  //   // image:_imageList[index],
+                  //   name: _nameList[index],
+                  //   messageText: _textList[index],
+                  //   imageUrl: _imageList2[index],
+                  //   time: chatUsers[index].time,
+                  //   isMessageRead: (index == 0 || index == 3) ? true : false,
+                  // );
                 },
               ),
             )
