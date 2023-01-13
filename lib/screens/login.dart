@@ -109,7 +109,27 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: password,
                       decoration: InputDecoration(
                           hintText: "groupH12356",
-                          suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                          suffixIcon: IconButton(
+                              onPressed: () {
+                                if (isObscure) {
+                                  setState(() {
+                                    isObscure = false;
+                                  });
+                                } else {
+                                  setState(() {
+                                    isObscure = true;
+                                  });
+                                }
+                              },
+                              icon: isObscure
+                                  ? const Icon(
+                                      Icons.remove_red_eye_rounded,
+                                      color: Colors.grey,
+                                    )
+                                  : const Icon(
+                                      Icons.remove_red_eye_outlined,
+                                      color: Colors.grey,
+                                    )),
                           border: OutlineInputBorder(
                               borderSide:
                                   const BorderSide(color: MyColors.blackColor),
