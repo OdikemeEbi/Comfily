@@ -172,59 +172,62 @@ class _HouseDetailScreenState extends State<BedsitterHouseDetails> {
                     SizedBox(
                       height: NewDimensions.height20,
                     ),
-                    Row(
-                      children: [
-                        Container(
-                          height: 30,
-                          width: 160,
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: MyColors.whiteColor,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(
-                                          NewDimensions.height10))),
-                              onPressed: (() {}),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.chat_outlined,
-                                    color: MyColors.mainColor,
-                                  ),
-                                  SizedBox(
-                                    width: NewDimensions.width10 - 9,
-                                  ),
-                                  BigText(
-                                    text: 'START CHAT',
-                                    color: MyColors.mainColor,
-                                  )
-                                ],
-                              )),
-                        ),
-                        SizedBox(
-                          width: NewDimensions.width20 - 5,
-                        ),
-                        Container(
-                          width: 160,
-                          height: 30,
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  // backgroundColor: MyColors.whiteColor,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(
-                                          NewDimensions.height10))),
-                              onPressed: (() {}),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.call),
-                                  SizedBox(
-                                    width: NewDimensions.width10 - 9,
-                                  ),
-                                  BigText(text: 'CALL')
-                                ],
-                              )),
-                        )
-                      ],
+                    Container(
+                      // width: MediaQuery.of(context).size.width / 1.1,
+                      child: Row(
+                        children: [
+                          Container(
+                            // height: 30,
+                            width: NewDimensions.width20 + 129,
+                            child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: MyColors.whiteColor,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            NewDimensions.height10))),
+                                onPressed: (() {}),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.chat_outlined,
+                                      color: MyColors.mainColor,
+                                    ),
+                                    SizedBox(
+                                      width: NewDimensions.width10 - 9,
+                                    ),
+                                    BigText(
+                                      text: 'START CHAT',
+                                      color: MyColors.mainColor,
+                                    )
+                                  ],
+                                )),
+                          ),
+                          SizedBox(
+                            width: NewDimensions.width10,
+                          ),
+                          Container(
+                            width: NewDimensions.width20 + 129,
+                            // height: 30,
+                            child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    // backgroundColor: MyColors.whiteColor,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            NewDimensions.height10))),
+                                onPressed: (() {}),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.call),
+                                    SizedBox(
+                                      width: NewDimensions.width10 - 9,
+                                    ),
+                                    BigText(text: 'CALL')
+                                  ],
+                                )),
+                          )
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: NewDimensions.height20,

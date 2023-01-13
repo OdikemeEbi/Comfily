@@ -95,8 +95,8 @@ class _BedsitterDetailsState extends State<BedsitterDetails> {
                                             image: AssetImage(
                                                 '${_imageList[index]}'),
                                             fit: BoxFit.cover)),
-                                    width: 138,
-                                    height: 92,
+                                    width: NewDimensions.width20 + 118,
+                                    height: NewDimensions.height20 + 72,
                                     // color: Colors.yellow,
                                   ),
                                 ),

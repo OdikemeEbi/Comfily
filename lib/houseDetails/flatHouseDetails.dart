@@ -175,8 +175,8 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                     Row(
                       children: [
                         Container(
-                          height: 30,
-                          width: 160,
+                          // height: 30,
+                          width: NewDimensions.width20 + 129,
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: MyColors.whiteColor,
@@ -201,11 +201,11 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                               )),
                         ),
                         SizedBox(
-                          width: NewDimensions.width20 - 5,
+                          width: NewDimensions.width10,
                         ),
                         Container(
-                          width: 160,
-                          height: 30,
+                          width: NewDimensions.width20 + 120,
+                          // height: 30,
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   // backgroundColor: MyColors.whiteColor,
