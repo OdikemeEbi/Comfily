@@ -119,31 +119,67 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   SizedBox(
                     height: NewDimensions.height20,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
+                  Container(
+                    width: MediaQuery.of(context).size.width / 1.1,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              BigText(
+                                text: "Phone",
+                              ),
+                              SizedBox(
+                                height: NewDimensions.height10,
+                              ),
+                              Container(
+                                width: NewDimensions.width20 * 5.8,
+                                height: NewDimensions.height52,
+                                child: TextFormField(
+                                  controller: phone,
+                                  decoration: InputDecoration(
+                                      hintText: "+123705678710",
+                                      hintStyle: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: NewDimensions.height10 + 4,
+                                          fontWeight: FontWeight.w500),
+                                      prefixIcon:
+                                          Icon(Icons.remove_red_eye_outlined),
+                                      border: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              color: MyColors.blackColor),
+                                          borderRadius: BorderRadius.circular(
+                                              NewDimensions.height10))),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: NewDimensions.width10,
+                        ),
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             BigText(
-                              text: "Phone",
+                              text: "Gender",
                             ),
                             SizedBox(
                               height: NewDimensions.height10,
                             ),
                             Container(
-                              width: NewDimensions.width20 * 5.8,
                               height: NewDimensions.height52,
+                              width: NewDimensions.width20 * 3,
                               child: TextFormField(
-                                controller: phone,
+                                controller: gender,
                                 decoration: InputDecoration(
-                                    hintText: "+123705678710",
+                                    hintText: "Select",
                                     hintStyle: TextStyle(
                                         color: Colors.grey,
                                         fontSize: NewDimensions.height10 + 4,
                                         fontWeight: FontWeight.w500),
-                                    prefixIcon:
-                                        Icon(Icons.remove_red_eye_outlined),
+                                    suffixIcon: Icon(Icons.arrow_drop_down),
                                     border: OutlineInputBorder(
                                         borderSide: const BorderSide(
                                             color: MyColors.blackColor),
@@ -152,42 +188,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               ),
                             ),
                           ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: NewDimensions.width10,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          BigText(
-                            text: "Gender",
-                          ),
-                          SizedBox(
-                            height: NewDimensions.height10,
-                          ),
-                          Container(
-                            height: NewDimensions.height52,
-                            width: NewDimensions.width20 * 3,
-                            child: TextFormField(
-                              controller: gender,
-                              decoration: InputDecoration(
-                                  hintText: "Select",
-                                  hintStyle: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: NewDimensions.height10 + 4,
-                                      fontWeight: FontWeight.w500),
-                                  suffixIcon: Icon(Icons.arrow_drop_down),
-                                  border: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          color: MyColors.blackColor),
-                                      borderRadius: BorderRadius.circular(
-                                          NewDimensions.height10))),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: NewDimensions.height20,
