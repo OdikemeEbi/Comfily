@@ -233,7 +233,7 @@ class _MyWidgetState extends State<HomeWidget> {
                     height: NewDimensions.height10,
                   ),
                   Container(
-                    height: 120,
+                    height: NewDimensions.height20 * 6 + 6,
                     child: ListView.builder(
                       shrinkWrap: true,
                       reverse: true,

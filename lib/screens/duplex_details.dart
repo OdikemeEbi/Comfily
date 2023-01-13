@@ -45,13 +45,16 @@ class _BedsitterDetailsState extends State<DuplexDetails> {
                           color: MyColors.mainColor,
                         )),
                     SizedBox(
-                      width: NewDimensions.width10,
+                      width: NewDimensions.width10 - 5,
                     ),
-                    Text(
-                      'Latest and affordeble Duplexes for rent',
-                      style: TextStyle(
-                          fontSize: NewDimensions.height10 + 4,
-                          fontWeight: FontWeight.bold),
+                    Container(
+                      width: MediaQuery.of(context).size.width / 1.5,
+                      child: Text(
+                        'Latest and affordeble Duplexes for rent',
+                        style: TextStyle(
+                            fontSize: NewDimensions.height10 + 4,
+                            fontWeight: FontWeight.bold),
+                      ),
                     )
                     // SmallText(
                     //   text: 'Bedsitter to let',
