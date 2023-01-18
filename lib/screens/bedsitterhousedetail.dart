@@ -5,6 +5,8 @@ import 'package:comfily/utils/mycolors.dart';
 import 'package:comfily/utils/mytext.dart';
 import 'package:flutter/material.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 import '../utils/dimensions.dart';
 
 class BedsitterHouseDetails extends StatefulWidget {
@@ -30,8 +32,43 @@ class _HouseDetailScreenState extends State<BedsitterHouseDetails> {
     'assets/images/frame01.png',
     'assets/images/frame01.png',
   ];
+
+  // String _platformVersion = 'android';
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   initPlatformState();
+  // }
+
+  // // Platform messages are asynchronous, so we initialize in an async method.
+  // Future<void> initPlatformState() async {
+  //   String platformVersion;
+  //   // Platform messages may fail, so we use a try/catch PlatformException.
+  //   try {
+  //     platformVersion = await FlutterOpenWhatsapp.platformVersion;
+  //   } on PlatformException {
+  //     platformVersion = 'Failed to get platform version.';
+  //   }
+
+  //   // If the widget was removed from the tree while the asynchronous platform
+  //   // message was in flight, we want to discard the reply rather than calling
+  //   // setState to update our non-existent appearance.
+  //   if (!mounted) return;
+
+  //   setState(() {
+  //     _platformVersion = platformVersion;
+  //   });
+  // }
+  // void launchWhatsapp({required number, required message}) async {
+  //   String url = "whatsapp://send?phone=$number&text=$message";
+
+  //   await canLaunchUrl(url) ? launch(url) : print("cant open whatsapp");
+  // }
+
   @override
   Widget build(BuildContext context) {
+    final Uri whatsapp = Uri.parse('https://wa.me/2347054117567');
     return Scaffold(
       // appBar: AppBar(),
       body: SafeArea(
@@ -172,62 +209,62 @@ class _HouseDetailScreenState extends State<BedsitterHouseDetails> {
                     SizedBox(
                       height: NewDimensions.height20,
                     ),
-                    Container(
-                      // width: MediaQuery.of(context).size.width / 1.1,
-                      child: Row(
-                        children: [
-                          Container(
-                            // height: 30,
-                            width: NewDimensions.width20 + 129,
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: MyColors.whiteColor,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            NewDimensions.height10))),
-                                onPressed: (() {}),
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      Icons.chat_outlined,
-                                      color: MyColors.mainColor,
-                                    ),
-                                    SizedBox(
-                                      width: NewDimensions.width10 - 9,
-                                    ),
-                                    BigText(
-                                      text: 'START CHAT',
-                                      color: MyColors.mainColor,
-                                    )
-                                  ],
-                                )),
-                          ),
-                          SizedBox(
-                            width: NewDimensions.width10,
-                          ),
-                          Container(
-                            width: NewDimensions.width20 + 129,
-                            // height: 30,
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    // backgroundColor: MyColors.whiteColor,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            NewDimensions.height10))),
-                                onPressed: (() {}),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(Icons.call),
-                                    SizedBox(
-                                      width: NewDimensions.width10 - 9,
-                                    ),
-                                    BigText(text: 'CALL')
-                                  ],
-                                )),
-                          )
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          // height: 30,
+                          width: NewDimensions.width20 + 129,
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: MyColors.whiteColor,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          NewDimensions.height10))),
+                              onPressed: (() async {
+                                launchUrl(whatsapp);
+                              }),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.chat_outlined,
+                                    color: MyColors.mainColor,
+                                  ),
+                                  SizedBox(
+                                    width: NewDimensions.width10 - 9,
+                                  ),
+                                  BigText(
+                                    text: 'START CHAT',
+                                    color: MyColors.mainColor,
+                                  )
+                                ],
+                              )),
+                        ),
+                        // SizedBox(
+                        //   width: NewDimensions.width10,
+                        // ),
+                        Container(
+                          width: NewDimensions.width20 + 129,
+                          // height: 30,
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  // backgroundColor: MyColors.whiteColor,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          NewDimensions.height10))),
+                              onPressed: (() {}),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.call),
+                                  SizedBox(
+                                    width: NewDimensions.width10 - 9,
+                                  ),
+                                  BigText(text: 'CALL')
+                                ],
+                              )),
+                        )
+                      ],
                     ),
                     SizedBox(
                       height: NewDimensions.height20,
@@ -309,4 +346,21 @@ class _HouseDetailScreenState extends State<BedsitterHouseDetails> {
       ),
     );
   }
+}
+
+//
+whatsapp() async {
+  var contact = "+2347054117567";
+  var androidUrl = "whatsapp://send?phone=$contact&text=Hi, I need some help";
+  var iosUrl =
+      "https://wa.me/$contact?text=${Uri.parse('Hi, I need some help')}";
+
+  //  try{
+
+  //     if{
+  //        await launchUrl(Uri.parse(androidUrl));
+  //     }
+  //  } on Exception{
+  //    isLoading.showError('WhatsApp is not installed.');
+  // }
 }

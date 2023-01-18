@@ -265,8 +265,8 @@ class _MyWidgetState extends State<HomeWidget> {
                                           image: AssetImage(
                                               '${_imageList[index]}'),
                                           fit: BoxFit.cover)),
-                                  width: 100,
-                                  height: 100,
+                                  width: NewDimensions.width20 * 3,
+                                  height: NewDimensions.height20 * 5,
                                   // color: Colors.yellow,
                                 ),
                               ),
@@ -315,8 +315,8 @@ class _MyWidgetState extends State<HomeWidget> {
                                               '${_imageList[index]}'),
                                           fit: BoxFit.cover)),
 
-                                  height: 170,
-                                  width: 157,
+                                  height: NewDimensions.height20 * 150,
+                                  width: NewDimensions.width20 * 137,
                                   // color: Colors.blue,
                                 ),
                               ),

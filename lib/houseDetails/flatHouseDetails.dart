@@ -164,7 +164,7 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                       height: NewDimensions.height10,
                     ),
                     Text(
-                      '1 Kitchen, 3 Rooms, 2 Balconies, 2 Parlour and 1\nGarage. Good Electricity, Constant Water Supply and\nSecurity is 247 in the estate.  . ',
+                      '1 Kitchen, 3 Rooms, 2 Balconies, 2 Parlour and 1\nGarage. Good Electricity, Constant Water Supply\nand Security is 247 in the estate.  . ',
                       style: TextStyle(
                         fontSize: NewDimensions.font10 + 6,
                       ),
@@ -173,6 +173,7 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                       height: NewDimensions.height20,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
                           // height: 30,
@@ -193,18 +194,18 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                                   SizedBox(
                                     width: NewDimensions.width10 - 9,
                                   ),
-                                  BigText(
+                                  SmallText(
                                     text: 'START CHAT',
                                     color: MyColors.mainColor,
                                   )
                                 ],
                               )),
                         ),
-                        SizedBox(
-                          width: NewDimensions.width10,
-                        ),
+                        // SizedBox(
+                        //   width: NewDimensions.width10,
+                        // ),
                         Container(
-                          width: NewDimensions.width20 + 120,
+                          width: NewDimensions.width20 + 129,
                           // height: 30,
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
@@ -240,7 +241,7 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                       height: NewDimensions.height10,
                     ),
                     Container(
-                      height: NewDimensions.height52 * 2 - 25,
+                      height: NewDimensions.height52 * 2.5 - 25,
                       child: ListView.builder(
                         shrinkWrap: true,
                         // reverse: true,
@@ -272,8 +273,8 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                                             image: AssetImage(
                                                 '${_imageList[index]}'),
                                             fit: BoxFit.cover)),
-                                    width: 84,
-                                    height: 72,
+                                    width: NewDimensions.width20 + 64,
+                                    height: NewDimensions.width20 + 52,
                                     // color: Colors.yellow,
                                   ),
                                 ),
@@ -291,9 +292,11 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                       child: Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage('assets/images/map.png'))),
-                        height: 165,
-                        width: 335,
+                                image: AssetImage('assets/images/map.png'),
+                                fit: BoxFit.cover)),
+                        height: NewDimensions.height20 + 126,
+                        width: MediaQuery.of(context).size.width / 1.2,
+                        // width: NewDimensions.width20 + 315,
                         // color: Colors.green,
                       ),
                     )

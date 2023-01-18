@@ -1,4 +1,5 @@
 import 'package:comfily/screens/editprofile.dart';
+import 'package:comfily/screens/login.dart';
 import 'package:comfily/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
@@ -186,6 +187,42 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             Icons.keyboard_arrow_right,
             size: NewDimensions.height20 + 10,
           ),
+        ),
+        ListTile(
+          leading: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginScreen(),
+                  ));
+            },
+            style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.all(0),
+                shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(NewDimensions.height10)),
+                shadowColor: Colors.black,
+                minimumSize: Size(
+                    NewDimensions.height20 + 20, NewDimensions.height20 + 20),
+                backgroundColor: Colors.white,
+                elevation: NewDimensions.height10 + 5),
+            child: Icon(
+              Icons.person_remove,
+              color: Colors.black,
+              size: NewDimensions.height20 + 5,
+            ),
+          ),
+          title: Text(
+            'Log out',
+            style: TextStyle(
+                fontSize: NewDimensions.font20 - 4,
+                fontWeight: FontWeight.w500),
+          ),
+          // trailing: Icon(
+          //   Icons.keyboard_arrow_right,
+          //   size: NewDimensions.height20 + 10,
+          // ),
         )
       ]),
     ));

@@ -1,7 +1,5 @@
 import 'package:comfily/screens/bedsitterhousedetail.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../utils/dimensions.dart';
 import '../utils/mycolors.dart';
@@ -75,59 +73,63 @@ class _BedsitterDetailsState extends State<BedsitterDetails> {
                         margin: EdgeInsets.only(left: 3, right: 3),
                         child: Column(
                           children: [
-                            Row(
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              BedsitterHouseDetails(),
-                                        ));
-                                  },
-                                  splashColor: MyColors.greyColor,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                            NewDimensions.height20 - 5),
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                '${_imageList[index]}'),
-                                            fit: BoxFit.cover)),
-                                    width: NewDimensions.width20 + 118,
-                                    height: NewDimensions.height20 + 72,
-                                    // color: Colors.yellow,
+                            IntrinsicHeight(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                BedsitterHouseDetails(),
+                                          ));
+                                    },
+                                    splashColor: MyColors.greyColor,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                              NewDimensions.height20 - 5),
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  '${_imageList[index]}'),
+                                              fit: BoxFit.cover)),
+                                      width: NewDimensions.width20 + 118,
+                                      height: NewDimensions.height20 + 72,
+                                      // color: Colors.yellow,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: NewDimensions.width20,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const SmallText(
-                                        text:
-                                            'Four bedroom fully\nfurnished bungalow.',
-                                        color: MyColors.blackColor),
-                                    const SmallText(
-                                        text:
-                                            'Location: Marble Estate\nDLA Road, Asaba.',
-                                        color: MyColors.blackColor),
-                                    Row(
-                                      children: const [
-                                        SmallText(
-                                            text: 'Price:',
-                                            color: MyColors.mainColor),
-                                        SmallText(
-                                            text: '\#4000,000',
-                                            color: MyColors.mainColor),
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
+                                  SizedBox(
+                                    width: NewDimensions.width20,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SmallText(
+                                          text:
+                                              'Four bedroom fully\nfurnished bungalow.',
+                                          color: MyColors.blackColor),
+                                      const SmallText(
+                                          text:
+                                              'Location: Marble Estate\nDLA Road, Asaba.',
+                                          color: MyColors.blackColor),
+                                      Row(
+                                        children: const [
+                                          SmallText(
+                                              text: 'Price:',
+                                              color: MyColors.mainColor),
+                                          SmallText(
+                                              text: '\#4000,000',
+                                              color: MyColors.mainColor),
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                             SizedBox(
                               height: NewDimensions.height20,

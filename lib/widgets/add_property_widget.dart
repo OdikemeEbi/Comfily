@@ -3,6 +3,7 @@ import 'package:comfily/utils/dimensions.dart';
 import 'package:comfily/utils/mycolors.dart';
 import 'package:comfily/utils/mytext.dart';
 import 'package:comfily/utils/elevatedButton.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class AddPropertyWidget extends StatefulWidget {
@@ -13,7 +14,20 @@ class AddPropertyWidget extends StatefulWidget {
 }
 
 class _ResetPasswordScreenState extends State<AddPropertyWidget> {
+  List<DropdownMenuItem<String>> get dropdownItems {
+    List<DropdownMenuItem<String>> menuItems = [
+      DropdownMenuItem(child: Text("Bedsitter"), value: "Bedsitter"),
+      DropdownMenuItem(child: Text("Flat"), value: "Flat"),
+      DropdownMenuItem(child: Text("Bungalow"), value: "Bungalow"),
+      DropdownMenuItem(child: Text("Duplex"), value: "Duplex"),
+    ];
+    return menuItems;
+  }
+
   final _formKey = GlobalKey<FormState>();
+
+  String? selectedValue = null;
+  final _dropdownFormKey = GlobalKey<FormState>();
 
   final TextEditingController category = TextEditingController();
   final TextEditingController title = TextEditingController();
@@ -80,19 +94,41 @@ class _ResetPasswordScreenState extends State<AddPropertyWidget> {
                   height: NewDimensions.height20,
                 ),
                 Container(
-                  height: NewDimensions.height52,
-                  child: TextFormField(
-                    controller: category,
-                    decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.arrow_drop_down),
-                        hintText: "Select category*",
-                        hintStyle: TextStyle(color: MyColors.greyColor),
+                  height: NewDimensions.height52 + 5,
+                  child: DropdownButtonFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Category',
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                         border: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: MyColors.blackColor),
-                            borderRadius:
-                                BorderRadius.circular(NewDimensions.height10))),
-                  ),
+                          borderSide: BorderSide(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                      ),
+                      dropdownColor: Colors.white,
+                      value: selectedValue,
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedValue = newValue!;
+                        });
+                      },
+                      items: dropdownItems),
+                  // child: TextFormField(
+                  //   controller: category,
+                  //   decoration: InputDecoration(
+                  //       suffixIcon: Icon(Icons.arrow_drop_down),
+                  //       hintText: "Select category*",
+                  //       hintStyle: TextStyle(color: MyColors.greyColor),
+                  //       border: OutlineInputBorder(
+                  //           borderSide:
+                  //               const BorderSide(color: MyColors.blackColor),
+                  //           borderRadius:
+                  //               BorderRadius.circular(NewDimensions.height10))),
+                  // ),
                 ),
                 SizedBox(
                   height: NewDimensions.height20,
@@ -115,9 +151,9 @@ class _ResetPasswordScreenState extends State<AddPropertyWidget> {
                   height: NewDimensions.height20,
                 ),
                 Container(
-                  height: NewDimensions.height52,
+                  // height: NewDimensions.height52 * 3,
                   child: TextFormField(
-                    maxLines: 2,
+                    maxLines: 3,
                     controller: description,
                     decoration: InputDecoration(
                         hintText: "Description*",

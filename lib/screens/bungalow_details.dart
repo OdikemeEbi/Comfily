@@ -31,7 +31,8 @@ class _BedsitterDetailsState extends State<BungalowDetails> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(NewDimensions.height20),
+            padding: EdgeInsets.only(
+                left: NewDimensions.width10, right: NewDimensions.width10),
             child: Column(
               children: [
                 Row(
@@ -42,7 +43,7 @@ class _BedsitterDetailsState extends State<BungalowDetails> {
                         }),
                         icon: Icon(
                           Icons.arrow_back_ios_new,
-                          size: NewDimensions.height10 + 5,
+                          size: NewDimensions.font10 + 5,
                           color: MyColors.mainColor,
                         )),
                     SizedBox(
@@ -51,7 +52,7 @@ class _BedsitterDetailsState extends State<BungalowDetails> {
                     Text(
                       'Bungalows to let',
                       style: TextStyle(
-                          fontSize: NewDimensions.height10 + 4,
+                          fontSize: NewDimensions.font10 + 4,
                           fontWeight: FontWeight.bold),
                     )
                     // SmallText(
@@ -68,68 +69,78 @@ class _BedsitterDetailsState extends State<BungalowDetails> {
                   child: ListView.builder(
                     // reverse: true,
                     shrinkWrap: true,
-                    itemCount: 6,
+                    itemCount: _imageList.length,
                     // scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Container(
-                        margin: EdgeInsets.only(left: 3, right: 3),
+                        padding: EdgeInsets.only(
+                            left: NewDimensions.width10,
+                            right: NewDimensions.width10 - 7,
+                            bottom: 0),
+                        // margin: EdgeInsets.only(left: 3, right: 3),S
                         child: Column(
                           children: [
-                            Row(
-                              children: [
-                                InkWell(
-                                  onTap: (() {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              BungalowHouseDetails(),
-                                        ));
-                                  }),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                            NewDimensions.height20 - 5),
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                '${_imageList[index]}'),
-                                            fit: BoxFit.cover)),
-                                    width: NewDimensions.width20 + 118,
-                                    height: NewDimensions.height20 + 72,
-                                    // color: Colors.yellow,
+                            IntrinsicHeight(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  InkWell(
+                                    onTap: (() {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                BungalowHouseDetails(),
+                                          ));
+                                    }),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                              NewDimensions.height20 - 5),
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  '${_imageList[index]}'),
+                                              fit: BoxFit.cover)),
+                                      width: NewDimensions.width20 + 118,
+                                      height: NewDimensions.height20 + 72,
+                                      // color: Colors.yellow,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: NewDimensions.width20,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const SmallText(
-                                        text:
-                                            'Four bedroom fully\nfurnished bungalow.',
-                                        color: MyColors.blackColor),
-                                    const SmallText(
-                                        text:
-                                            'Location: Marble Estate\nDLA Road, Asaba.',
-                                        color: MyColors.blackColor),
-                                    Row(
-                                      children: const [
-                                        SmallText(
-                                            text: 'Price:',
-                                            color: MyColors.mainColor),
-                                        SmallText(
-                                            text: '\#4000,000',
-                                            color: MyColors.mainColor),
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
+                                  // SizedBox(
+                                  //   width: NewDimensions.width20,
+                                  // ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SmallText(
+                                          text:
+                                              'Four bedroom fully\nfurnished bungalow.',
+                                          color: MyColors.blackColor),
+                                      const SmallText(
+                                          text:
+                                              'Location: Marble Estate\nDLA Road, Asaba.',
+                                          color: MyColors.blackColor),
+                                      Row(
+                                        children: const [
+                                          SmallText(
+                                              text: 'Price:',
+                                              color: MyColors.mainColor),
+                                          SmallText(
+                                              text: '\#4000,000',
+                                              color: MyColors.mainColor),
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                             SizedBox(
-                              height: NewDimensions.height20,
+                              height: NewDimensions.height10,
                             ),
                           ],
                         ),

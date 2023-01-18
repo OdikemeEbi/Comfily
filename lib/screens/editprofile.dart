@@ -23,12 +23,25 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController gender = TextEditingController();
   final TextEditingController address = TextEditingController();
 
+  List<String> _genderList = ["Male", "Female"];
+  bool _displayGenderList = false;
+
+  String selectedValue = "Male";
+  List<DropdownMenuItem<String>> get dropdownItems {
+    List<DropdownMenuItem<String>> menuItems = [
+      DropdownMenuItem(child: Text("Male"), value: "Male"),
+      DropdownMenuItem(child: Text("Female"), value: "Female"),
+    ];
+    return menuItems;
+  }
+
   @override
   Widget build(BuildContext context) {
     // print('my current screen height is' +
     //     MediaQuery.of(context).size.height.toString());
     return Scaffold(
       // appBar: AppBar(),
+
       body: Padding(
         padding: EdgeInsets.all(NewDimensions.height20),
         child: SafeArea(
@@ -139,13 +152,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 child: TextFormField(
                                   controller: phone,
                                   decoration: InputDecoration(
-                                      hintText: "+123705678710",
+                                      hintText: "+234...",
                                       hintStyle: TextStyle(
                                           color: Colors.grey,
                                           fontSize: NewDimensions.height10 + 4,
                                           fontWeight: FontWeight.w500),
-                                      prefixIcon:
-                                          Icon(Icons.remove_red_eye_outlined),
+                                      prefixIcon: Icon(Icons.flag),
                                       border: OutlineInputBorder(
                                           borderSide: const BorderSide(
                                               color: MyColors.blackColor),
@@ -169,24 +181,73 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               height: NewDimensions.height10,
                             ),
                             Container(
-                              height: NewDimensions.height52,
-                              width: NewDimensions.width20 * 3,
-                              child: TextFormField(
-                                controller: gender,
-                                decoration: InputDecoration(
-                                    hintText: "Select",
-                                    hintStyle: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: NewDimensions.height10 + 4,
-                                        fontWeight: FontWeight.w500),
-                                    suffixIcon: Icon(Icons.arrow_drop_down),
-                                    border: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: MyColors.blackColor),
-                                        borderRadius: BorderRadius.circular(
-                                            NewDimensions.height10))),
-                              ),
-                            ),
+                                height: NewDimensions.height52,
+                                width: NewDimensions.width20 * 3,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(color: Colors.grey)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: DropdownButton(
+                                      value: selectedValue,
+                                      onChanged: (String? newValue) {
+                                        setState(() {
+                                          selectedValue = newValue!;
+                                        });
+                                      },
+                                      items: dropdownItems),
+                                )
+                                // child: TextFormField(
+                                //   controller: gender,
+                                //   decoration: InputDecoration(
+                                //       hintText: "Select",
+                                //       hintStyle: TextStyle(
+                                //           color: Colors.grey,
+                                //           fontSize: NewDimensions.height10 + 4,
+                                //           fontWeight: FontWeight.w500),
+                                //       suffixIcon: GestureDetector(
+                                //           onTap: () {
+                                //             setState(() {
+                                //               _displayGenderList =
+                                //                   !_displayGenderList;
+                                //             });
+                                //           },
+                                //           child: Icon(Icons.arrow_drop_down)),
+                                //       border: OutlineInputBorder(
+                                //           borderSide: const BorderSide(
+                                //               color: MyColors.blackColor),
+                                //           borderRadius: BorderRadius.circular(
+                                //               NewDimensions.height10))),
+                                // ),
+                                ),
+                            _displayGenderList
+                                ? Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.blueGrey,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    height: 80,
+                                    width: 100,
+                                    child: ListView.builder(
+                                        itemCount: _genderList.length,
+                                        itemBuilder: (context, index) {
+                                          return Container(
+                                            height: 30,
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  gender.text =
+                                                      (index + 1).toString();
+                                                });
+                                              },
+                                              child: ListTile(
+                                                title: Text(_genderList[index]),
+                                              ),
+                                            ),
+                                          );
+                                        }),
+                                  )
+                                : SizedBox()
                           ],
                         )
                       ],
@@ -253,7 +314,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               Size(double.infinity, NewDimensions.height10 * 6),
                         ),
                         onPressed: () {},
-                        child: BigText(text: "Sign up")),
+                        child: BigText(text: "Done")),
                   ),
                   // SizedBox(
                   //   height: NewDimensions.height20 + 10,

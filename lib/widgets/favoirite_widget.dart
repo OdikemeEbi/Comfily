@@ -32,7 +32,7 @@ class _MyWidgetState extends State<FavouriteWidget> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(NewDimensions.height20),
+            padding: EdgeInsets.all(NewDimensions.height10 - 5),
             child: Column(
               children: [
                 Container(
@@ -66,53 +66,63 @@ class _MyWidgetState extends State<FavouriteWidget> {
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
                       return Container(
-                        padding: EdgeInsets.only(left: 10, right: 3, bottom: 0),
+                        padding: EdgeInsets.only(
+                            left: NewDimensions.width10,
+                            right: NewDimensions.width10 - 7,
+                            bottom: 0),
                         child: Column(
                           children: [
-                            Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                          NewDimensions.height20 - 5),
-                                      image: DecorationImage(
-                                          image: AssetImage(_imageList[index]),
-                                          fit: BoxFit.cover)),
-                                  width: NewDimensions.width20 + 118,
-                                  height: NewDimensions.height20 + 72,
-                                  // color: Colors.yellow,
-                                ),
-                                SizedBox(
-                                  width: NewDimensions.width20,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const SmallText(
-                                        text:
-                                            'Four bedroom fully\nfurnished bungalow.',
-                                        color: MyColors.blackColor),
-                                    const SmallText(
-                                        text:
-                                            'Location: Marble Estate\nDLA Road, Asaba.',
-                                        color: MyColors.blackColor),
-                                    Row(
-                                      children: const [
-                                        SmallText(
-                                            text: 'Price:',
-                                            color: MyColors.mainColor),
-                                        SmallText(
-                                            text: '\#4000,000',
-                                            color: MyColors.mainColor),
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
+                            IntrinsicHeight(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(
+                                            NewDimensions.height20 - 5),
+                                        image: DecorationImage(
+                                            image:
+                                                AssetImage(_imageList[index]),
+                                            fit: BoxFit.cover)),
+                                    width: NewDimensions.width20 + 118,
+                                    height: NewDimensions.height20 + 72,
+                                    // color: Colors.yellow,
+                                  ),
+                                  SizedBox(
+                                    width: NewDimensions.width20,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SmallText(
+                                          text:
+                                              'Four bedroom fully\nfurnished bungalow.',
+                                          color: MyColors.blackColor),
+                                      const SmallText(
+                                          text:
+                                              'Location: Marble Estate\nDLA Road, Asaba.',
+                                          color: MyColors.blackColor),
+                                      Row(
+                                        children: const [
+                                          SmallText(
+                                              text: 'Price:',
+                                              color: MyColors.mainColor),
+                                          SmallText(
+                                              text: '\#4000,000',
+                                              color: MyColors.mainColor),
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                             SizedBox(
-                              height: NewDimensions.height20,
+                              height: NewDimensions.height10,
                             ),
                           ],
                         ),

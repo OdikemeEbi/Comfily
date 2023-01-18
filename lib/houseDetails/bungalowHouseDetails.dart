@@ -173,6 +173,7 @@ class _BungalowHouseDetailsState extends State<BungalowHouseDetails> {
                       height: NewDimensions.height20,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
                           // height: 30,
@@ -200,11 +201,11 @@ class _BungalowHouseDetailsState extends State<BungalowHouseDetails> {
                                 ],
                               )),
                         ),
-                        SizedBox(
-                          width: NewDimensions.width10,
-                        ),
+                        // SizedBox(
+                        //   width: NewDimensions.width10,
+                        // ),
                         Container(
-                          width: NewDimensions.width20 + 120,
+                          width: NewDimensions.width20 + 129,
                           // height: 30,
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(

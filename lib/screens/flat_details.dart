@@ -83,58 +83,62 @@ class _FlatDetailsState extends State<FlatDetails> {
                         margin: EdgeInsets.only(left: 3, right: 3),
                         child: Column(
                           children: [
-                            Row(
-                              children: [
-                                InkWell(
-                                  onTap: (() {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              FlatHouseDetails(),
-                                        ));
-                                  }),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                            NewDimensions.height20 - 5),
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                '${_imageList2[index]}'),
-                                            fit: BoxFit.cover)),
-                                    width: NewDimensions.width20 + 118,
-                                    height: NewDimensions.height20 + 72,
-                                    // color: Colors.yellow,
+                            IntrinsicHeight(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  InkWell(
+                                    onTap: (() {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                FlatHouseDetails(),
+                                          ));
+                                    }),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                              NewDimensions.height20 - 5),
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  '${_imageList2[index]}'),
+                                              fit: BoxFit.cover)),
+                                      width: NewDimensions.width20 + 118,
+                                      height: NewDimensions.height20 + 72,
+                                      // color: Colors.yellow,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: NewDimensions.width20,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const SmallText(
-                                        text:
-                                            'Four bedroom fully\nfurnished bungalow.',
-                                        color: MyColors.blackColor),
-                                    const SmallText(
-                                        text:
-                                            'Location: Marble Estate\nDLA Road, Asaba.',
-                                        color: MyColors.blackColor),
-                                    Row(
-                                      children: const [
-                                        SmallText(
-                                            text: 'Price:',
-                                            color: MyColors.mainColor),
-                                        SmallText(
-                                            text: '\#4000,000',
-                                            color: MyColors.mainColor),
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
+                                  SizedBox(
+                                    width: NewDimensions.width20,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SmallText(
+                                          text:
+                                              'Four bedroom fully\nfurnished bungalow.',
+                                          color: MyColors.blackColor),
+                                      const SmallText(
+                                          text:
+                                              'Location: Marble Estate\nDLA Road, Asaba.',
+                                          color: MyColors.blackColor),
+                                      Row(
+                                        children: const [
+                                          SmallText(
+                                              text: 'Price:',
+                                              color: MyColors.mainColor),
+                                          SmallText(
+                                              text: '\#4000,000',
+                                              color: MyColors.mainColor),
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                             SizedBox(
                               height: NewDimensions.height20,

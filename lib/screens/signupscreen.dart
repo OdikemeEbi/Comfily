@@ -107,10 +107,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Container(
                     height: NewDimensions.height52,
                     child: TextFormField(
+                      obscureText: isObscure,
                       controller: password,
                       decoration: InputDecoration(
                           hintText: "groupH12356",
-                          suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                          suffixIcon: IconButton(
+                              onPressed: () {
+                                if (isObscure) {
+                                  setState(() {
+                                    isObscure = false;
+                                  });
+                                } else {
+                                  setState(() {
+                                    isObscure = true;
+                                  });
+                                }
+                              },
+                              icon: isObscure
+                                  ? const Icon(
+                                      Icons.remove_red_eye_rounded,
+                                      color: Colors.grey,
+                                    )
+                                  : const Icon(
+                                      Icons.remove_red_eye_outlined,
+                                      color: Colors.grey,
+                                    )),
                           border: OutlineInputBorder(
                               borderSide:
                                   const BorderSide(color: MyColors.blackColor),
@@ -136,10 +157,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Container(
                     height: NewDimensions.height52,
                     child: TextFormField(
+                      obscureText: isObscure,
                       controller: confirmPassword,
                       decoration: InputDecoration(
                           hintText: "groupH12356",
-                          suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                          suffixIcon: IconButton(
+                              onPressed: () {
+                                if (isObscure) {
+                                  setState(() {
+                                    isObscure = false;
+                                  });
+                                } else {
+                                  setState(() {
+                                    isObscure = true;
+                                  });
+                                }
+                              },
+                              icon: isObscure
+                                  ? const Icon(
+                                      Icons.remove_red_eye_rounded,
+                                      color: Colors.grey,
+                                    )
+                                  : const Icon(
+                                      Icons.remove_red_eye_outlined,
+                                      color: Colors.grey,
+                                    )),
                           border: OutlineInputBorder(
                               borderSide:
                                   const BorderSide(color: MyColors.blackColor),
@@ -174,8 +216,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const EditProfileScreen()));
+                                    builder: (context) => const LoginScreen()));
                           }
                         },
                         child: BigText(text: "Sign up")),

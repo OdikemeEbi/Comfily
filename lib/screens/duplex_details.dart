@@ -1,3 +1,5 @@
+import 'package:comfily/houseDetails/duplexHouseDetails.dart';
+import 'package:comfily/screens/bedsitterhousedetail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -30,7 +32,8 @@ class _BedsitterDetailsState extends State<DuplexDetails> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(NewDimensions.height20),
+            padding: EdgeInsets.only(
+                left: NewDimensions.width10, right: NewDimensions.width10),
             child: Column(
               children: [
                 Row(
@@ -74,54 +77,74 @@ class _BedsitterDetailsState extends State<DuplexDetails> {
                     // scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Container(
-                        margin: EdgeInsets.only(left: 3, right: 3),
+                        padding: EdgeInsets.only(
+                            left: NewDimensions.width10,
+                            right: NewDimensions.width10 - 7,
+                            bottom: 0),
+                        // margin: EdgeInsets.only(left: 3, right: 3),
                         child: Column(
                           children: [
-                            Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                          NewDimensions.height20 - 5),
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              '${_imageList[index]}'),
-                                          fit: BoxFit.cover)),
-                                  width: NewDimensions.width20 + 118,
-                                  height: NewDimensions.height20 + 72,
-                                  // color: Colors.yellow,
-                                ),
-                                SizedBox(
-                                  width: NewDimensions.width20,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const SmallText(
-                                        text:
-                                            'Four bedroom fully\nfurnished bungalow.',
-                                        color: MyColors.blackColor),
-                                    const SmallText(
-                                        text:
-                                            'Location: Marble Estate\nDLA Road, Asaba.',
-                                        color: MyColors.blackColor),
-                                    Row(
-                                      children: const [
-                                        SmallText(
-                                            text: 'Price:',
-                                            color: MyColors.mainColor),
-                                        SmallText(
-                                            text: '\#4000,000',
-                                            color: MyColors.mainColor),
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
+                            IntrinsicHeight(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  InkWell(
+                                    onTap: (() {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                DuplexHouseDetails(),
+                                          ));
+                                    }),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                              NewDimensions.height20 - 5),
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  '${_imageList[index]}'),
+                                              fit: BoxFit.cover)),
+                                      width: NewDimensions.width20 + 118,
+                                      height: NewDimensions.height20 + 72,
+                                      // color: Colors.yellow,
+                                    ),
+                                  ),
+                                  // SizedBox(
+                                  //   width: NewDimensions.width20,
+                                  // ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SmallText(
+                                          text:
+                                              'Four bedroom fully\nfurnished bungalow.',
+                                          color: MyColors.blackColor),
+                                      const SmallText(
+                                          text:
+                                              'Location: Marble Estate\nDLA Road, Asaba.',
+                                          color: MyColors.blackColor),
+                                      Row(
+                                        children: const [
+                                          SmallText(
+                                              text: 'Price:',
+                                              color: MyColors.mainColor),
+                                          SmallText(
+                                              text: '\#4000,000',
+                                              color: MyColors.mainColor),
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                             SizedBox(
-                              height: NewDimensions.height20,
+                              height: NewDimensions.height10,
                             ),
                           ],
                         ),

@@ -28,6 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     // print('my current screen height is' +
     //     MediaQuery.of(context).size.height.toString());
+
     return Scaffold(
       // appBar: AppBar(),
       body: Padding(
@@ -106,6 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                     height: NewDimensions.height52,
                     child: TextFormField(
+                      obscureText: isObscure,
                       controller: password,
                       decoration: InputDecoration(
                           hintText: "groupH12356",
