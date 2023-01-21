@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:comfily/screens/signupscreen.dart';
 import 'package:comfily/utils/dimensions.dart';
 import 'package:comfily/utils/mycolors.dart';
@@ -5,6 +7,8 @@ import 'package:comfily/utils/mytext.dart';
 import 'package:comfily/utils/elevatedButton.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddPropertyWidget extends StatefulWidget {
   const AddPropertyWidget({super.key});
@@ -35,6 +39,20 @@ class _ResetPasswordScreenState extends State<AddPropertyWidget> {
   final TextEditingController region = TextEditingController();
   final TextEditingController name = TextEditingController();
   final TextEditingController phone = TextEditingController();
+
+  File? image;
+
+  Future pickImage() async {
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    if (image == null) return;
+
+    final imageTemp = File(image.path);
+    setState(() => this.image = imageTemp);
+    try {} on PlatformException catch (e) {
+      print('fail to pick image $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -133,6 +151,31 @@ class _ResetPasswordScreenState extends State<AddPropertyWidget> {
                 SizedBox(
                   height: NewDimensions.height20,
                 ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    BigText(text: 'Add photo'),
+                    SmallText(
+                        text: 'Add at least four images for this category',
+                        color: Colors.grey),
+                    SizedBox(
+                      height: NewDimensions.height20,
+                    ),
+                    GestureDetector(
+                      onTap: (() {
+                        pickImage();
+                      }),
+                      child: CircleAvatar(
+                        backgroundColor: MyColors.greyColor,
+                        radius: 40,
+                        child: Icon(Icons.add_a_photo),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: NewDimensions.height20,
+                ),
                 Container(
                   height: NewDimensions.height52,
                   child: TextFormField(
@@ -191,7 +234,7 @@ class _ResetPasswordScreenState extends State<AddPropertyWidget> {
                   child: TextFormField(
                     controller: name,
                     decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.arrow_drop_down),
+                        // suffixIcon: Icon(Icons.arrow_drop_down),
                         hintText: "group h comfily",
                         border: OutlineInputBorder(
                             borderSide:

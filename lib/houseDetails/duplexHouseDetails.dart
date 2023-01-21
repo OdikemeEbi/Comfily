@@ -189,13 +189,14 @@ class _DuplexHouseDetailsState extends State<DuplexHouseDetails> {
                                 children: [
                                   Icon(
                                     Icons.chat_outlined,
+                                    size: NewDimensions.height20,
                                     color: MyColors.mainColor,
                                   ),
                                   SizedBox(
-                                    width: NewDimensions.width10 - 9,
+                                    width: NewDimensions.width10 / 2,
                                   ),
-                                  BigText(
-                                    text: 'START CHAT',
+                                  SmallText(
+                                    text: 'MAKE PAYMENT',
                                     color: MyColors.mainColor,
                                   )
                                 ],

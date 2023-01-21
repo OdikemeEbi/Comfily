@@ -189,13 +189,14 @@ class _FlatHouseDetailsState extends State<FlatHouseDetails> {
                                 children: [
                                   Icon(
                                     Icons.chat_outlined,
+                                    size: NewDimensions.height20,
                                     color: MyColors.mainColor,
                                   ),
                                   SizedBox(
-                                    width: NewDimensions.width10 - 9,
+                                    width: NewDimensions.width10 / 2,
                                   ),
                                   SmallText(
-                                    text: 'START CHAT',
+                                    text: 'MAKE PAYMENT',
                                     color: MyColors.mainColor,
                                   )
                                 ],

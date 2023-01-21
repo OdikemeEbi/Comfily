@@ -1,7 +1,12 @@
 import 'package:comfily/screens/editprofile.dart';
 import 'package:comfily/screens/login.dart';
 import 'package:comfily/utils/dimensions.dart';
+import 'package:comfily/utils/mycolors.dart';
+import 'package:comfily/utils/mytext.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class ProfileWidget extends StatefulWidget {
   const ProfileWidget({super.key});
@@ -11,6 +16,22 @@ class ProfileWidget extends StatefulWidget {
 }
 
 class _ProfileWidgetState extends State<ProfileWidget> {
+  File? _image;
+
+  final _picker = ImagePicker();
+  // Implementing the image picker
+  Future<void> _openImagePicker() async {
+    final XFile? pickedImage =
+        await _picker.pickImage(source: ImageSource.gallery);
+    if (pickedImage != null) {
+      setState(() {
+        _image = File(pickedImage.path);
+      });
+    }
+  }
+
+  final bottomSheet = botttomSheet();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,11 +42,22 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       padding: EdgeInsets.fromLTRB(NewDimensions.height10,
           NewDimensions.height20 + 20, NewDimensions.height10, 0),
       child: Column(children: [
-        CircleAvatar(
-          radius: NewDimensions.height20 + 20,
-          backgroundImage: AssetImage(
-            'assets/images/profile.png',
-          ),
+        InkWell(
+          onTap: () {
+            _openImagePicker();
+            // showModalBottomSheet(
+            //   context: context,
+            //   builder: ((builder) => botttomSheet()),
+            // );
+          },
+          child: _image != null
+              ? Image.file(_image!, fit: BoxFit.cover)
+              : CircleAvatar(
+                  radius: NewDimensions.height20 + 20,
+                  backgroundImage: AssetImage(
+                    'assets/images/profile.png',
+                  ),
+                ),
         ),
         SizedBox(
           height: NewDimensions.height20,
@@ -227,4 +259,36 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       ]),
     ));
   }
+}
+
+Widget botttomSheet() {
+  return Container(
+    height: 100,
+    width: 300,
+    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+    child: Column(
+      children: [
+        BigText(
+          text: 'Choose profile image',
+          color: MyColors.blackColor,
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            TextButton.icon(
+                onPressed: (() {}),
+                icon: Icon(Icons.camera),
+                label: Text('Take a Photo')),
+            TextButton.icon(
+                onPressed: (() {}),
+                icon: Icon(Icons.photo),
+                label: Text('Pick from Gallery'))
+          ],
+        )
+      ],
+    ),
+  );
 }

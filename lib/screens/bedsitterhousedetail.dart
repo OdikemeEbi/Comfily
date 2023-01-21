@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:comfily/utils/elevatedButton.dart';
 import 'package:comfily/utils/mycolors.dart';
 import 'package:comfily/utils/mytext.dart';
+import 'package:comfily/widgets/payment_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:url_launcher/url_launcher.dart';
@@ -228,14 +229,25 @@ class _HouseDetailScreenState extends State<BedsitterHouseDetails> {
                                 children: [
                                   Icon(
                                     Icons.chat_outlined,
+                                    size: NewDimensions.height20,
                                     color: MyColors.mainColor,
                                   ),
                                   SizedBox(
-                                    width: NewDimensions.width10 - 9,
+                                    width: NewDimensions.width10 / 2,
                                   ),
-                                  BigText(
-                                    text: 'START CHAT',
-                                    color: MyColors.mainColor,
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PaymentWidget(),
+                                          ));
+                                    },
+                                    child: SmallText(
+                                      text: 'MAKE PAYMENT',
+                                      color: MyColors.mainColor,
+                                    ),
                                   )
                                 ],
                               )),

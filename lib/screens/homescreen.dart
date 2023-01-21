@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeWidget(),
     FavouriteWidget(),
     AddPropertyWidget(),
-    ChatWidget(),
+    // ChatWidget(),
     ProfileWidget()
   ];
 
@@ -34,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: BottomNavigationBar(
             // mouseCursor: MouseCursor.uncontrolled,
             unselectedIconTheme: IconThemeData(color: MyColors.mainColor),
+            selectedItemColor: Colors.blue,
             backgroundColor: MyColors.whiteColor,
             currentIndex: currentIndex,
             onTap: (value) {
@@ -41,17 +42,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 currentIndex = value;
               });
             },
-            iconSize: NewDimensions.font20 + 10,
-            selectedFontSize: NewDimensions.font10 + 3,
-            type: BottomNavigationBarType.fixed,
+            iconSize: NewDimensions.font20 + 20,
+            selectedFontSize: NewDimensions.font10 + 6,
+            type: BottomNavigationBarType.shifting,
             items: const [
               BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
               BottomNavigationBarItem(
                   label: 'Favourite', icon: Icon(Icons.star)),
               BottomNavigationBarItem(
                   label: 'Add Property', icon: Icon(Icons.add_box_rounded)),
-              BottomNavigationBarItem(
-                  label: 'Chat', icon: Icon(Icons.chat_sharp)),
+              // BottomNavigationBarItem(
+              //     label: 'Chat', icon: Icon(Icons.chat_sharp)),
               BottomNavigationBarItem(
                   label: 'Profile', icon: Icon(Icons.person))
             ]));
